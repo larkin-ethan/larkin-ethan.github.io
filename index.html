@@ -876,6 +876,14 @@ drwxr-xr-x   4 ethan  staff   128 Aug 13 09:41 <span class="ls-dir">contact</spa
     return new Promise(function (resolve) { setTimeout(resolve, ms); });
   }
 
+  function isStacked() {
+    return window.matchMedia && window.matchMedia('(max-width: 640px)').matches;
+  }
+
+  function splitCommand() {
+    return 'tmux split-window ' + (isStacked() ? '-v' : '-h');
+  }
+
   function randHexLine(len) {
     var chars = '0123456789abcdef';
     var out = '';
@@ -995,7 +1003,7 @@ drwxr-xr-x   4 ethan  staff   128 Aug 13 09:41 <span class="ls-dir">contact</spa
     await sleep(500);
     if (token !== runToken) return;
 
-    await typeInPane('photo', 'tmux split-window -h');
+    await typeInPane('photo', splitCommand());
     if (token !== runToken) return;
     tmuxPanes.classList.add('split');
     await sleep(550);
