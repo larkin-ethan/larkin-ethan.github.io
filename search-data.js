@@ -78,7 +78,7 @@ window.SEARCH_INDEX = [
   },
   {
     page: 'contact.html', anchor: 'contact-card', heading: 'Contact',
-    text: 'Email: larkinethan02@gmail.com. GitHub: github.com/jordankim. LinkedIn: linkedin.com/in/jordankim. Location: Seattle, WA, open to remote. Resume available as a PDF download.'
+    text: 'Email: larkinethan02@gmail.com. GitHub: github.com/larkin-ethan. LinkedIn: linkedin.com/in/ethan-larkin. Location: Seattle, WA, open to remote. Resume available as a PDF download.'
   },
   {
     page: 'index.html', anchor: 'sitemap', heading: 'Site sections',
