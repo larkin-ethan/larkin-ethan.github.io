@@ -402,6 +402,18 @@ h1.name {
 .pkg .key { color: var(--amber); }
 .pkg .str { color: var(--add); }
 .pkg .punc { color: var(--cream-dim); }
+.pkg .null { color: var(--cream-dim); font-style: italic; }
+@media (max-width: 480px) {
+  .pkg { font-size: 12px; overflow-x: hidden; }
+  .pkg .ln { white-space: pre-wrap; overflow-wrap: anywhere; }
+}
+.pkg-link {
+  color: var(--add);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 2px;
+}
+.pkg-link:hover { color: var(--amber); text-decoration-color: var(--amber); }
 
 .coverage-group { margin-bottom: 34px; }
 .coverage-group .group-label { font-size: 12px; color: var(--amber-dim); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 14px; }
@@ -533,6 +545,35 @@ footer.site-footer .prompt2 { color: var(--add); }
       <div class="group-label">Currently learning <span style="opacity:0.6;">(low coverage, on purpose)</span></div>
       <div class="cov-row"><span class="name">Rust</span><div class="cov-bar"><div class="cov-fill" style="width:20%; background: var(--amber-dim);"></div></div><span class="pct">20%</span></div>
       <div class="cov-row"><span class="name">Kafka</span><div class="cov-bar"><div class="cov-fill" style="width:15%; background: var(--amber-dim);"></div></div><span class="pct">15%</span></div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <h2 class="gr">cat ~/resume/skills.json | jq '.certifications'</h2>
+    <div class="pkg">
+      <div class="ln">[</div>
+      <div class="ln">  {</div>
+      <div class="ln">    <span class="key">"name"</span><span class="punc">:</span> <span class="str">"AWS Certified Solutions Architect &ndash; Associate"</span><span class="punc">,</span></div>
+      <div class="ln">    <span class="key">"issuer"</span><span class="punc">:</span> <span class="str">"Amazon Web Services"</span><span class="punc">,</span></div>
+      <div class="ln">    <span class="key">"issued"</span><span class="punc">:</span> <span class="str">"2024-03"</span><span class="punc">,</span></div>
+      <div class="ln">    <span class="key">"expires"</span><span class="punc">:</span> <span class="str">"2027-03"</span><span class="punc">,</span></div>
+      <div class="ln">    <span class="key">"credential_url"</span><span class="punc">:</span> <span class="str">"<a class="pkg-link" href="https://www.credly.com/badges/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" target="_blank" rel="noopener noreferrer">https://www.credly.com/badges/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</a>"</span></div>
+      <div class="ln">  }<span class="punc">,</span></div>
+      <div class="ln">  {</div>
+      <div class="ln">    <span class="key">"name"</span><span class="punc">:</span> <span class="str">"Certified Kubernetes Administrator (CKA)"</span><span class="punc">,</span></div>
+      <div class="ln">    <span class="key">"issuer"</span><span class="punc">:</span> <span class="str">"The Linux Foundation"</span><span class="punc">,</span></div>
+      <div class="ln">    <span class="key">"issued"</span><span class="punc">:</span> <span class="str">"2023-11"</span><span class="punc">,</span></div>
+      <div class="ln">    <span class="key">"expires"</span><span class="punc">:</span> <span class="str">"2026-11"</span><span class="punc">,</span></div>
+      <div class="ln">    <span class="key">"credential_url"</span><span class="punc">:</span> <span class="str">"<a class="pkg-link" href="https://www.credential.net/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" target="_blank" rel="noopener noreferrer">https://www.credential.net/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</a>"</span></div>
+      <div class="ln">  }<span class="punc">,</span></div>
+      <div class="ln">  {</div>
+      <div class="ln">    <span class="key">"name"</span><span class="punc">:</span> <span class="str">"Google Data Analytics Professional Certificate"</span><span class="punc">,</span></div>
+      <div class="ln">    <span class="key">"issuer"</span><span class="punc">:</span> <span class="str">"Google"</span><span class="punc">,</span></div>
+      <div class="ln">    <span class="key">"issued"</span><span class="punc">:</span> <span class="str">"2023-06"</span><span class="punc">,</span></div>
+      <div class="ln">    <span class="key">"expires"</span><span class="punc">:</span> <span class="null">null</span><span class="punc">,</span></div>
+      <div class="ln">    <span class="key">"credential_url"</span><span class="punc">:</span> <span class="str">"<a class="pkg-link" href="https://www.coursera.org/verify/professional-cert/XXXXXXXXXXXX" target="_blank" rel="noopener noreferrer">https://www.coursera.org/verify/professional-cert/XXXXXXXXXXXX</a>"</span></div>
+      <div class="ln">  }</div>
+      <div class="ln">]</div>
     </div>
   </section>
 

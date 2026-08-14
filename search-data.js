@@ -77,6 +77,10 @@ window.SEARCH_INDEX = [
     text: 'Rust, Kafka. Coverage: Rust 20%, Kafka 15%.'
   },
   {
+    page: 'skills.html', anchor: 'certifications', heading: 'Certifications',
+    text: 'AWS Certified Solutions Architect - Associate (Amazon Web Services, 2024). Certified Kubernetes Administrator, CKA (The Linux Foundation, 2023). Google Data Analytics Professional Certificate (Google, 2023).'
+  },
+  {
     page: 'contact.html', anchor: 'contact-card', heading: 'Contact',
     text: 'Email: larkinethan02@gmail.com. GitHub: github.com/larkin-ethan. LinkedIn: linkedin.com/in/ethan-larkin. Location: Seattle, WA, open to remote. Resume available as a PDF download.'
   },
