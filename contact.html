@@ -215,6 +215,11 @@ nav.tabs a.active::after {
   .search-results { left: 12px; right: 12px; }
 }
 
+/* Contact page: no interactive/raw choice on small screens — always raw */
+@media (max-width: 640px) {
+  .mode-btn[data-mode="interactive"] { display: none; }
+}
+
 
 
 /* ---------------------------------------------
@@ -868,8 +873,16 @@ footer.site-footer .prompt2 { color: var(--add); }
     });
   }
 
+  function isSmallScreen() {
+    return window.matchMedia && window.matchMedia('(max-width: 640px)').matches;
+  }
+
+  var lastMode = 'interactive';
+
   function applyContactMode(mode) {
-    if (mode === 'raw') {
+    lastMode = mode;
+    var effectiveMode = isSmallScreen() ? 'raw' : mode;
+    if (effectiveMode === 'raw') {
       box.hidden = true;
       if (plainForm) plainForm.hidden = false;
       if (heading) heading.textContent = 'curl -X POST ethan.dev/contact';
@@ -880,6 +893,8 @@ footer.site-footer .prompt2 { color: var(--add); }
       resetWizard();
     }
   }
+
+  window.addEventListener('resize', function () { applyContactMode(lastMode); });
 
   if (window.SiteMode) {
     SiteMode.subscribe(applyContactMode);
