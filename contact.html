@@ -627,9 +627,8 @@ footer.site-footer .prompt2 { color: var(--add); }
   var answers = {};
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  function buildReplyLink(email, name) {
-    var subject = encodeURIComponent('Re: your message to Ethan Larkin');
-    return 'mailto:' + email + '?subject=' + subject;
+  function replyFieldName(name) {
+    return 'reply to ' + (name || 'them');
   }
 
   function scrollToBottom() {
@@ -751,9 +750,10 @@ footer.site-footer .prompt2 { color: var(--add); }
     var fd = new FormData();
     fd.append('name', answers.name || '');
     fd.append('email', answers.email || '');
-    fd.append('company', answers.company || '');
+    if (answers.company) fd.append('company', answers.company);
     fd.append('message', answers.message || '');
-    fd.append('reply_link', buildReplyLink(answers.email, answers.name));
+    fd.append(replyFieldName(answers.name), 'mailto:' + (answers.email || ''));
+    fd.append('_replyto', answers.email || '');
     fd.append('_honey', '');
     fd.append('_subject', 'New message from your portfolio site');
     fd.append('_captcha', 'false');
@@ -796,7 +796,9 @@ footer.site-footer .prompt2 { color: var(--add); }
       plainSubmit.textContent = 'sending…';
 
       var plainFd = new FormData(plainForm);
-      plainFd.append('reply_link', buildReplyLink(plainFd.get('email'), plainFd.get('name')));
+      if (!plainFd.get('company')) plainFd.delete('company');
+      plainFd.append(replyFieldName(plainFd.get('name')), 'mailto:' + (plainFd.get('email') || ''));
+      plainFd.append('_replyto', plainFd.get('email') || '');
 
       fetch('https://formsubmit.co/ajax/' + DEST, {
         method: 'POST',
