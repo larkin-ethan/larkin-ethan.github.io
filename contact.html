@@ -570,6 +570,10 @@ footer.site-footer .prompt2 { color: var(--add); }
         <input type="text" id="cfp-name" name="name" autocomplete="name" required>
       </div>
       <div class="form-row">
+        <label for="cfp-email">Email</label>
+        <input type="email" id="cfp-email" name="email" autocomplete="email" required>
+      </div>
+      <div class="form-row">
         <label for="cfp-company">Company <span class="optional">(optional)</span></label>
         <input type="text" id="cfp-company" name="company" autocomplete="organization">
       </div>
@@ -616,10 +620,17 @@ footer.site-footer .prompt2 { color: var(--add); }
   var DEST = 'larkinethan02@gmail.com';
   var STEPS = [
     { key: 'name', prompt: 'Enter your name: ', multiline: false, required: true },
+    { key: 'email', prompt: 'Enter your email: ', multiline: false, required: true, type: 'email' },
     { key: 'company', prompt: 'Enter your company (press Enter to skip): ', multiline: false, required: false },
     { key: 'message', prompt: 'Enter your message (Ctrl+Enter to send): ', multiline: true, required: true }
   ];
   var answers = {};
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  function buildReplyLink(email, name) {
+    var subject = encodeURIComponent('Re: your message to Ethan Larkin');
+    return 'mailto:' + email + '?subject=' + subject;
+  }
 
   function scrollToBottom() {
     box.scrollTop = box.scrollHeight;
@@ -666,7 +677,7 @@ footer.site-footer .prompt2 { color: var(--add); }
       input.rows = 1;
     } else {
       input = document.createElement('input');
-      input.type = 'text';
+      input.type = step.type || 'text';
       input.className = 'prompt-input';
     }
     input.setAttribute('autocomplete', 'off');
@@ -688,6 +699,11 @@ footer.site-footer .prompt2 { color: var(--add); }
     function submitStep() {
       var val = input.value.trim();
       if (step.required && !val) {
+        input.classList.add('invalid');
+        setTimeout(function () { input.classList.remove('invalid'); }, 400);
+        return;
+      }
+      if (step.type === 'email' && val && !EMAIL_RE.test(val)) {
         input.classList.add('invalid');
         setTimeout(function () { input.classList.remove('invalid'); }, 400);
         return;
@@ -734,8 +750,10 @@ footer.site-footer .prompt2 { color: var(--add); }
 
     var fd = new FormData();
     fd.append('name', answers.name || '');
+    fd.append('email', answers.email || '');
     fd.append('company', answers.company || '');
     fd.append('message', answers.message || '');
+    fd.append('reply_link', buildReplyLink(answers.email, answers.name));
     fd.append('_honey', '');
     fd.append('_subject', 'New message from your portfolio site');
     fd.append('_captcha', 'false');
@@ -777,10 +795,13 @@ footer.site-footer .prompt2 { color: var(--add); }
       plainSubmit.disabled = true;
       plainSubmit.textContent = 'sending…';
 
+      var plainFd = new FormData(plainForm);
+      plainFd.append('reply_link', buildReplyLink(plainFd.get('email'), plainFd.get('name')));
+
       fetch('https://formsubmit.co/ajax/' + DEST, {
         method: 'POST',
         headers: { 'Accept': 'application/json' },
-        body: new FormData(plainForm)
+        body: plainFd
       }).then(function (res) {
         if (!res.ok) throw new Error('bad status');
         return res.json();
