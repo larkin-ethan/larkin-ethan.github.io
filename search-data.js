@@ -12,7 +12,7 @@ window.SEARCH_INDEX = [
   {
     page: 'projects.html', anchor: '', heading: 'Projects',
     keywords: ['projects', 'portfolio', 'built', 'work'],
-    text: 'Things built — four projects with status, stack, and description.'
+    text: 'Things built — five projects with status, stack, and description.'
   },
   {
     page: 'skills.html', anchor: '', heading: 'Skills',
@@ -43,6 +43,10 @@ window.SEARCH_INDEX = [
   {
     page: 'experience.html', anchor: 'v0x', heading: 'Software Engineering Intern — Northlane Systems (Jun 2021–Aug 2021)',
     text: 'Internship at Northlane Systems. Built a Slack bot, automated smoke tests, and earned a return offer.'
+  },
+  {
+    page: 'projects.html', anchor: 'dropabop', heading: 'Drop a Bop (live)',
+    text: 'A private music-sharing app: share a song each weekday, rate the week 0 to 10, results on Sunday. Try the demo without signing up. Built with the assistance of AI (Claude). TypeScript, React, AWS Lambda, DynamoDB, AWS SAM.'
   },
   {
     page: 'projects.html', anchor: 'signalboard', heading: 'Signalboard (in progress)',

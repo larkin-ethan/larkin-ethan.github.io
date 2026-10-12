@@ -488,11 +488,30 @@ footer.site-footer .prompt2 { color: var(--add); }
   <div class="page-head">
     <div class="file-label">CHANGELOG.md</div>
     <h1 class="page-title">Projects</h1>
-    <p class="page-sub">Four things I've built, in reverse-chronological order — the ones I'm proudest of are the ones people forgot were ever a side project.</p>
+    <p class="page-sub">Five things I've built, in reverse-chronological order — the ones I'm proudest of are the ones people forgot were ever a side project.</p>
   </div>
 
   <section id="projects">
-    <h2 class="gr">git log --oneline<span class="tag">4 commits</span></h2>
+    <h2 class="gr">git log --oneline<span class="tag">5 commits</span></h2>
+
+    <div class="commit" id="dropabop">
+      <div class="commit-head">
+        <span class="ver">v3.0.0</span><span class="hash">#6c30a7</span>
+        <span class="status-badge live">live</span>
+      </div>
+      <h3>Drop a Bop</h3>
+      <p>A private music-sharing app for friend groups and coworkers: every weekday each member shares one song, everyone rates the week's songs from 0 to 10, and when ratings lock on Sunday the results, stats and leaderboard are revealed. It moved my group's song-of-the-day spreadsheet into a real app, history included.</p>
+      <ul class="detail-list">
+        <li>Song search through Apple's catalog, links from Apple Music, Spotify or YouTube Music, and an in-app YouTube player</li>
+        <li>Anonymous until results: who shared each song stays hidden while the week is open</li>
+        <li>History calendar, taste stats, leaderboards, achievements, comments, saved songs and no repeat songs</li>
+        <li>Serverless on AWS (Lambda, API Gateway, DynamoDB, Cognito), defined as code with AWS SAM and built to cost close to $0</li>
+        <li>Around 1,000 automated tests (unit, database, browser at phone and desktop sizes) plus guardrails that block unsafe changes</li>
+        <li><strong>Built with the assistance of AI:</strong> designed, written and tested together with Claude (Anthropic's AI) in Claude Code, with me deciding what to build and reviewing each step</li>
+      </ul>
+      <p><a href="https://dropabop-demo.pages.dev">→ try the demo</a> &nbsp;·&nbsp; <a href="https://dropabop.pages.dev">→ dropabop.pages.dev</a> &nbsp;·&nbsp; <a href="https://github.com/larkin-ethan/DropABop">→ source on GitHub</a></p>
+      <div class="tags"><span>TypeScript</span><span>React</span><span>AWS Lambda</span><span>DynamoDB</span><span>AWS SAM</span><span>AI-assisted</span></div>
+    </div>
 
     <div class="commit" id="signalboard">
       <div class="commit-head">
