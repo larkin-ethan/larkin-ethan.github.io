@@ -12,7 +12,7 @@ window.SEARCH_INDEX = [
   {
     page: 'projects.html', anchor: '', heading: 'Projects',
     keywords: ['projects', 'portfolio', 'built', 'work'],
-    text: 'Things built — five projects with status, stack, and description.'
+    text: 'Things built — projects with status, stack, and description.'
   },
   {
     page: 'skills.html', anchor: '', heading: 'Skills',
@@ -49,20 +49,8 @@ window.SEARCH_INDEX = [
     text: 'A private music-sharing app: share a song each weekday, rate the week 0 to 10, results on Sunday. Try the demo without signing up. Built with the assistance of AI (Claude). TypeScript, React, AWS Lambda, DynamoDB, AWS SAM.'
   },
   {
-    page: 'projects.html', anchor: 'signalboard', heading: 'Signalboard (in progress)',
-    text: 'An on-call dashboard combining incidents, tracing, and deploys in one view. Built with TypeScript, Next.js, Prometheus.'
-  },
-  {
-    page: 'projects.html', anchor: 'queue-depth', heading: 'Queue Depth (live)',
-    text: 'A backpressure-aware Postgres job queue. Improved reliability by 91%, handling around 40,000 jobs per day. Built with TypeScript, Postgres, Redis, Docker.'
-  },
-  {
-    page: 'projects.html', anchor: 'riverbed', heading: 'Riverbed (live)',
-    text: 'A latency tracing CLI and dashboard across 6 Go microservices. Built with Go, gRPC, Prometheus.'
-  },
-  {
-    page: 'projects.html', anchor: 'fieldnotes', heading: 'Fieldnotes (live)',
-    text: 'A real-time collaborative markdown editor using CRDTs. Built with React, WebSockets, CRDT.'
+    page: 'projects.html', anchor: 'portfolio', heading: 'This portfolio site (live)',
+    text: 'This terminal-themed portfolio site, hosted on GitHub Pages: an interactive terminal, site-wide search and a Live / Raw mode toggle. Built with the assistance of AI (Claude). HTML, CSS, JavaScript.'
   },
   {
     page: 'skills.html', anchor: 'languages', heading: 'Languages',
@@ -90,6 +78,6 @@ window.SEARCH_INDEX = [
   },
   {
     page: 'index.html', anchor: 'sitemap', heading: 'Site sections',
-    text: 'Experience: two years, one company, one promotion, a lot of on-call shifts. Projects: three things built that other people now depend on. Skills: the stack and how comfortable I am in each part. Contact: email, GitHub, LinkedIn.'
+    text: 'Experience: two years, one company, one promotion, a lot of on-call shifts. Projects: things I have built, including Drop a Bop and this site. Skills: the stack and how comfortable I am in each part. Contact: email, GitHub, LinkedIn.'
   }
 ];

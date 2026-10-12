@@ -488,11 +488,11 @@ footer.site-footer .prompt2 { color: var(--add); }
   <div class="page-head">
     <div class="file-label">CHANGELOG.md</div>
     <h1 class="page-title">Projects</h1>
-    <p class="page-sub">Five things I've built, in reverse-chronological order — the ones I'm proudest of are the ones people forgot were ever a side project.</p>
+    <p class="page-sub">Things I've built, in reverse-chronological order.</p>
   </div>
 
   <section id="projects">
-    <h2 class="gr">git log --oneline<span class="tag">5 commits</span></h2>
+    <h2 class="gr">git log --oneline<span class="tag">2 commits</span></h2>
 
     <div class="commit" id="dropabop">
       <div class="commit-head">
@@ -513,64 +513,22 @@ footer.site-footer .prompt2 { color: var(--add); }
       <div class="tags"><span>TypeScript</span><span>React</span><span>AWS Lambda</span><span>DynamoDB</span><span>AWS SAM</span><span>AI-assisted</span></div>
     </div>
 
-    <div class="commit" id="signalboard">
+    <div class="commit" id="portfolio">
       <div class="commit-head">
-        <span class="ver">v2.1.0</span><span class="hash">#f4a920</span>
-        <span class="status-badge wip">in progress</span>
+        <span class="ver">v2.0.0</span><span class="hash">#e19480</span>
+        <span class="status-badge live">live</span>
       </div>
-      <h3>Signalboard</h3>
-      <p>An on-call dashboard that pulls incident data, tracing, and deploy history into one screen — built because Riverbed showed me the data but not the whole story at once.</p>
+      <h3>This portfolio site</h3>
+      <p>The site you're on right now: a terminal-themed personal portfolio, hosted on GitHub Pages, with every page written as a little piece of a developer's workspace — a changelog, a git log, an "ls" of the site.</p>
       <ul class="detail-list">
-        <li>Currently: wiring up the deploy-history feed</li>
-        <li>Next: alert-fatigue scoring so paging noise is visible, not just felt</li>
+        <li>Plain HTML, CSS and JavaScript with no framework or build step</li>
+        <li>Interactive terminal on the home page (try "cd projects") and site-wide search across every page</li>
+        <li>Live / Raw toggle that turns the animations off, defaulting to Raw for visitors who prefer reduced motion</li>
+        <li>Responsive layout that works at phone and desktop sizes</li>
+        <li><strong>Built with the assistance of AI:</strong> designed and written together with Claude (Anthropic's AI) in Claude Code, with me deciding what goes on the site and reviewing each change</li>
       </ul>
-      <div class="tags"><span>TypeScript</span><span>Next.js</span><span>Prometheus</span></div>
-    </div>
-
-    <div class="commit" id="queue-depth">
-      <div class="commit-head"><span class="ver">v2.0.0</span><span class="hash">#a91f3c</span><span class="status-badge live">live</span></div>
-      <h3>Queue Depth</h3>
-      <p>Backpressure-aware job queue on Postgres, replacing a cron worker that silently dropped jobs under load.</p>
-      <ul class="detail-list">
-        <li>Added visibility into queue depth, retry counts, and dead-letter handling that didn't exist before</li>
-        <li>Rolled out gradually behind a feature flag over three weeks with no downtime</li>
-        <li>Now processes roughly 40,000 jobs/day across the platform</li>
-      </ul>
-      <div class="diffstat">
-        <div class="bar"><div class="add" style="width:82%"></div><div class="rm" style="width:18%"></div></div>
-        <div class="nums"><span class="add-n">+91% reliability</span><span class="rm-n">-flaky retries</span></div>
-      </div>
-      <div class="tags"><span>TypeScript</span><span>Postgres</span><span>Redis</span><span>Docker</span></div>
-    </div>
-
-    <div class="commit" id="riverbed">
-      <div class="commit-head"><span class="ver">v1.4.0</span><span class="hash">#5e02b1</span><span class="status-badge live">live</span></div>
-      <h3>Riverbed</h3>
-      <p>Latency tracing CLI + dashboard across six Go microservices — built after a three-hour incident spent guessing which hop was slow.</p>
-      <ul class="detail-list">
-        <li>Traces requests end-to-end and flags the slowest hop automatically</li>
-        <li>Became the team's default first step during incidents within a month of shipping</li>
-      </ul>
-      <div class="diffstat">
-        <div class="bar"><div class="add" style="width:65%"></div><div class="rm" style="width:35%"></div></div>
-        <div class="nums"><span class="add-n">+6 services traced</span><span class="rm-n">-MTTR</span></div>
-      </div>
-      <div class="tags"><span>Go</span><span>gRPC</span><span>Prometheus</span></div>
-    </div>
-
-    <div class="commit" id="fieldnotes">
-      <div class="commit-head"><span class="ver">v1.0.0</span><span class="hash">#c33a08</span><span class="status-badge live">live</span></div>
-      <h3>Fieldnotes</h3>
-      <p>Real-time collaborative markdown editor with conflict-free merging, shipped solo for the team's internal wiki.</p>
-      <ul class="detail-list">
-        <li>Built as a weekend project; the team adopted it for real within two weeks</li>
-        <li>Handles concurrent edits from up to a dozen people without anyone noticing a conflict</li>
-      </ul>
-      <div class="diffstat">
-        <div class="bar"><div class="add" style="width:70%"></div><div class="rm" style="width:30%"></div></div>
-        <div class="nums"><span class="add-n">+live cursors</span><span class="rm-n">-merge conflicts</span></div>
-      </div>
-      <div class="tags"><span>React</span><span>WebSockets</span><span>CRDT</span></div>
+      <p><a href="https://larkin-ethan.github.io">→ larkin-ethan.github.io</a> &nbsp;·&nbsp; <a href="https://github.com/larkin-ethan/larkin-ethan.github.io">→ source on GitHub</a></p>
+      <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>GitHub Pages</span><span>AI-assisted</span></div>
     </div>
   </section>
 
