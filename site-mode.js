@@ -7,8 +7,7 @@ window.SiteMode = (function () {
       var stored = localStorage.getItem(KEY);
       if (stored === 'raw' || stored === 'interactive') return stored;
     } catch (e) {}
-    var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    return prefersReduced ? 'raw' : 'interactive';
+    return 'raw';
   }
 
   function set(mode) {

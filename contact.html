@@ -219,7 +219,9 @@ nav.tabs a.active::after {
   .mode-btn { font-size: 10.5px; padding: 4px 7px; }
   .mode-btn .mode-label { display: none; }
   .mode-btn.active .mode-label { display: inline; margin-left: 3px; }
-  nav.tabs a { padding: 10px 8px; font-size: 11.5px; }
+  nav.tabs { flex-wrap: wrap; gap: 1px; background: var(--border); overflow-x: visible; }
+  nav.tabs a { flex: 1 1 30%; padding: 10px 8px; font-size: 11.5px; border-right: none; background: var(--panel); }
+  nav.tabs a.active { background: var(--bg); }
   .search-row { padding: 8px 10px; }
   .search-input { font-size: 12.5px; }
   .search-results { left: 12px; right: 12px; }
@@ -564,7 +566,7 @@ footer.site-footer .prompt2 { color: var(--add); }
 <div class="term-shell">
   <div class="term-bar">
     <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-    <span class="term-title">ethan@northlane: ~/contact</span>
+    <span class="term-title">ethan@larkin: ~/contact</span>
     <div class="mode-toggle" id="modeToggle">
       <button type="button" class="mode-btn" data-mode="interactive"><span class="mode-icon">⚡</span><span class="mode-label">Live</span></button>
       <button type="button" class="mode-btn" data-mode="raw"><span class="mode-icon">☰</span><span class="mode-label">Raw</span></button>
@@ -597,7 +599,7 @@ footer.site-footer .prompt2 { color: var(--add); }
     <div class="hero-term contact-term" id="contactTerm" tabindex="0">
       <div class="term-bar">
         <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="term-title">ethan@northlane: ~/contact</span>
+        <span class="term-title">ethan@larkin: ~/contact</span>
       </div>
       <div class="term-body contact-term-body" id="contactTermBody">
         <div class="term-row"><span class="prompt-sym">$ </span><span class="typed-cmd">python3 contact.py</span></div>
@@ -630,13 +632,13 @@ footer.site-footer .prompt2 { color: var(--add); }
   </section>
 
   <section>
-    <h2 class="gr">curl -s ethan.dev/contact</h2>
+    <h2 class="gr">curl -s larkin-ethan.github.io/contact</h2>
     <div class="contact-card" id="contact-card">
       <div class="contact-row"><span class="k">Email</span><span class="v"><a href="mailto:larkinethan02@gmail.com">larkinethan02@gmail.com</a></span></div>
-      <div class="contact-row"><span class="k">GitHub</span><span class="v"><a href="#">github.com/larkin-ethan</a></span></div>
-      <div class="contact-row"><span class="k">LinkedIn</span><span class="v"><a href="#">linkedin.com/in/ethan-larkin</a></span></div>
-      <div class="contact-row"><span class="k">Location</span><span class="v">Seattle, WA · open to remote</span></div>
-      <div class="contact-row"><span class="k">Resume</span><span class="v"><a href="#">download PDF</a></span></div>
+      <div class="contact-row"><span class="k">GitHub</span><span class="v"><a href="https://github.com/larkin-ethan">github.com/larkin-ethan</a></span></div>
+      <div class="contact-row"><span class="k">LinkedIn</span><span class="v"><a href="https://www.linkedin.com/in/ethan-larkin-a51058294">linkedin.com/in/ethan-larkin-a51058294</a></span></div>
+      <div class="contact-row"><span class="k">Location</span><span class="v">Farmersville, TX</span></div>
+      <div class="contact-row"><span class="k">Resume</span><span class="v"><a href="files/Ethan_Larkin_Resume.pdf" download>download PDF</a></span></div>
     </div>
   </section>
 
@@ -895,7 +897,7 @@ footer.site-footer .prompt2 { color: var(--add); }
     if (effectiveMode === 'raw') {
       box.hidden = true;
       if (plainForm) plainForm.hidden = false;
-      if (heading) heading.textContent = 'curl -X POST ethan.dev/contact';
+      if (heading) heading.textContent = 'curl -X POST larkin-ethan.github.io/contact';
     } else {
       if (plainForm) plainForm.hidden = true;
       box.hidden = false;

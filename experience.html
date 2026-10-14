@@ -219,7 +219,9 @@ nav.tabs a.active::after {
   .mode-btn { font-size: 10.5px; padding: 4px 7px; }
   .mode-btn .mode-label { display: none; }
   .mode-btn.active .mode-label { display: inline; margin-left: 3px; }
-  nav.tabs a { padding: 10px 8px; font-size: 11.5px; }
+  nav.tabs { flex-wrap: wrap; gap: 1px; background: var(--border); overflow-x: visible; }
+  nav.tabs a { flex: 1 1 30%; padding: 10px 8px; font-size: 11.5px; border-right: none; background: var(--panel); }
+  nav.tabs a.active { background: var(--bg); }
   .search-row { padding: 8px 10px; }
   .search-input { font-size: 12.5px; }
   .search-results { left: 12px; right: 12px; }
@@ -463,7 +465,7 @@ footer.site-footer .prompt2 { color: var(--add); }
 <div class="term-shell">
   <div class="term-bar">
     <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-    <span class="term-title">ethan@northlane: ~/experience</span>
+    <span class="term-title">ethan@larkin: ~/experience</span>
     <div class="mode-toggle" id="modeToggle">
       <button type="button" class="mode-btn" data-mode="interactive"><span class="mode-icon">⚡</span><span class="mode-label">Live</span></button>
       <button type="button" class="mode-btn" data-mode="raw"><span class="mode-icon">☰</span><span class="mode-label">Raw</span></button>
@@ -488,50 +490,98 @@ footer.site-footer .prompt2 { color: var(--add); }
   <div class="page-head">
     <div class="file-label">RELEASES.md</div>
     <h1 class="page-title">Release history</h1>
-    <p class="page-sub">Two years, one company, three version bumps. Each release below is a role — what changed, and what shipped because of it.</p>
+    <p class="page-sub">Four jobs and two schools, newest first. Each release below is a role — what the work was, and what it taught me.</p>
   </div>
 
   <section>
-    <h2 class="gr">git log --stat<span class="tag">3 releases</span></h2>
+    <h2 class="gr">git log --stat<span class="tag">4 releases</span></h2>
 
-    <div class="release" id="v2x">
+    <div class="release" id="l3harris">
+      <div class="v">v4.x</div>
+      <div class="body-block">
+        <h3>Associate Software Engineer</h3>
+        <div class="meta">L3Harris · Fusion ELINT team · Greenville, TX · 2025 — Present</div>
+        <ul>
+          <li>Work on Fusion ELINT, the central hub for the system's electronic intelligence (ELINT) data, which combines the results of several other ELINT processors into the most accurate picture of the situation</li>
+          <li>Wrote a C++ daemon that moved 15 message types off our internal messaging software and onto NATS with protobuf</li>
+          <li>Built GitLab CI/CD pipelines that package our ICD (the message definitions) as RPMs, so it lives in one place and installs on every microservice that needs it, instead of each service keeping its own hand-updated copy</li>
+          <li>Expanded our test infrastructure with more than 50 pytest-bdd scenarios that catch errors before they reach the production system</li>
+          <li>Built 3 web GUIs (HTML, CSS, JavaScript) on top of existing command-line scripts, including one I first wrote in Tkinter, so non-technical users can run the tools without a terminal, make fewer mistakes, and no longer need an engineer to run them</li>
+          <li>Use AI tools throughout my workflow, which I estimate has cut my bug-fix time by about 40%</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="release" id="quiktrip">
+      <div class="v">v3.x</div>
+      <div class="body-block">
+        <h3>Clerk</h3>
+        <div class="meta">QuikTrip · Anna, TX · 2019 — 2025</div>
+        <ul>
+          <li>Checked out customers at the register quickly and accurately, keeping the line moving during busy shifts</li>
+          <li>Stocked shelves and coolers and rotated products so the store stayed full and nothing went out of date</li>
+          <li>Worked in the kitchen preparing food to QuikTrip's quality and food-safety standards</li>
+          <li>Cleaned the floors and kept the store presentable for customers</li>
+          <li>Moved between the register, stocking, the kitchen and cleaning as each shift needed, often several at once</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="release" id="emerald-cottages">
       <div class="v">v2.x</div>
       <div class="body-block">
-        <h3>Software Engineer II</h3>
-        <div class="meta">Northlane Systems · Oct 2023 — Present</div>
+        <h3>Maintenance Man</h3>
+        <div class="meta">Emerald Cottages · McKinney, TX · 2020 — 2023</div>
         <ul>
-          <li>Promoted after 10 months; now own the job-processing platform end to end, including on-call rotation</li>
-          <li>Built the internal latency-tracing tooling (see Riverbed) that's now the default first stop during incidents</li>
-          <li>Led the migration of the legacy job queue off cron, cutting failed-job rate by 91%</li>
-          <li>Mentor one intern per hiring cycle; two of three have converted to full-time offers</li>
-          <li>Run the weekly "what broke and why" retro for the platform team</li>
+          <li>Replaced broken parts on residents' appliances to get them working again</li>
+          <li>Repaired other parts of the homes when they broke</li>
+          <li>Tracked down what was actually wrong before replacing anything, so each repair fixed the real problem</li>
+          <li>Worked in residents' homes and kept them informed about what was being fixed</li>
+          <li>Held this job for three years alongside QuikTrip while finishing my associate's degree</li>
         </ul>
       </div>
     </div>
 
-    <div class="release" id="v1x">
+    <div class="release" id="whataburger">
       <div class="v">v1.x</div>
       <div class="body-block">
-        <h3>Software Engineer I</h3>
-        <div class="meta">Northlane Systems · Jun 2022 — Oct 2023</div>
+        <h3>Crew Member</h3>
+        <div class="meta">Whataburger · McKinney, TX · 2018 — 2019</div>
         <ul>
-          <li>Joined the platform team out of school; shipped first production change in week two</li>
-          <li>Rebuilt the internal deploy script into a proper CI pipeline with GitHub Actions, cutting deploy time from ~40 min to ~6 min</li>
-          <li>Owned the on-call runbook rewrite after realizing new hires couldn't follow the old one</li>
-          <li>Built Fieldnotes (real-time collaborative markdown editor) as a side project that the team adopted for the internal wiki</li>
+          <li>Worked the drive-thru window, taking orders and payments and getting food out quickly and correctly</li>
+          <li>Ran the fryer and helped keep orders moving during rushes</li>
+          <li>Cleaned the floors, tables and bathrooms to keep the restaurant ready for customers</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2 class="gr">git log --oneline -- education/<span class="tag">2 schools</span></h2>
+
+    <div class="release" id="utd">
+      <div class="v">B.S.</div>
+      <div class="body-block">
+        <h3>Bachelor's in Computer Science</h3>
+        <div class="meta">University of Texas at Dallas · Richardson, TX · 2023 — 2025</div>
+        <ul>
+          <li>Transferred from Collin College and finished my bachelor's degree in 2025</li>
+          <li>Senior design (fall 2024): a direction-finding drone sponsored by L3Harris, running parallel CUDA FFTs on a Jetson Nano</li>
+          <li>Software Engineering: planning, designing and testing software as a team</li>
+          <li>Database Systems (CS 4347): built Portfolio Peak, a stock portfolio site, with a team of five</li>
+          <li>Data and Applications Security (CS 4389): built a banking app with encrypted transfers, with a team of five</li>
         </ul>
       </div>
     </div>
 
-    <div class="release" id="v0x">
-      <div class="v">v0.x</div>
+    <div class="release" id="collin">
+      <div class="v">A.S.</div>
       <div class="body-block">
-        <h3>Software Engineering Intern</h3>
-        <div class="meta">Northlane Systems · Jun 2021 — Aug 2021</div>
+        <h3>Associate's Degree in Computer Science</h3>
+        <div class="meta">Collin County Community College · McKinney, TX · 2020 — 2023</div>
         <ul>
-          <li>Built an internal Slack bot that surfaced flaky test data — still in use two years later</li>
-          <li>Converted a 40-minute manual QA checklist into an automated smoke-test suite</li>
-          <li>Return offer, accepted a year later</li>
+          <li>Built my programming foundation in Python, Java, C and C++</li>
+          <li>Finished the degree while working two jobs</li>
         </ul>
       </div>
     </div>
@@ -539,7 +589,7 @@ footer.site-footer .prompt2 { color: var(--add); }
 
   <footer class="site-footer">
     <div class="prompt2">$ cd ../projects</div>
-    <div style="margin-top:6px;"><a href="projects.html">→ see what got built along the way</a></div>
+    <div style="margin-top:6px;"><a href="projects.html">→ see what I've built</a></div>
   </footer>
 
 </div>

@@ -219,7 +219,9 @@ nav.tabs a.active::after {
   .mode-btn { font-size: 10.5px; padding: 4px 7px; }
   .mode-btn .mode-label { display: none; }
   .mode-btn.active .mode-label { display: inline; margin-left: 3px; }
-  nav.tabs a { padding: 10px 8px; font-size: 11.5px; }
+  nav.tabs { flex-wrap: wrap; gap: 1px; background: var(--border); overflow-x: visible; }
+  nav.tabs a { flex: 1 1 30%; padding: 10px 8px; font-size: 11.5px; border-right: none; background: var(--panel); }
+  nav.tabs a.active { background: var(--bg); }
   .search-row { padding: 8px 10px; }
   .search-input { font-size: 12.5px; }
   .search-results { left: 12px; right: 12px; }
@@ -422,6 +424,9 @@ h1.name {
 .cov-bar { height: 10px; background: var(--border); border-radius: 3px; overflow: hidden; }
 .cov-fill { height: 100%; background: var(--add); border-radius: 3px; }
 .cov-row .pct { color: var(--cream-dim); font-size: 12px; text-align: right; }
+.used-row { display: grid; grid-template-columns: 120px 1fr; gap: 14px; margin-bottom: 12px; font-size: 13.5px; }
+.used-row .name { color: var(--cream); }
+.used-row .where { color: var(--cream-dim); }
 
 /* ---------------------------------------------
    Experience — release history
@@ -466,6 +471,7 @@ footer.site-footer .prompt2 { color: var(--add); }
   .release { flex-direction: column; gap: 4px; }
   .release .v { width: auto; }
   .cov-row { grid-template-columns: 90px 1fr 40px; }
+  .used-row { grid-template-columns: 90px 1fr; }
 }
 
 </style>
@@ -475,7 +481,7 @@ footer.site-footer .prompt2 { color: var(--add); }
 <div class="term-shell">
   <div class="term-bar">
     <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-    <span class="term-title">ethan@northlane: ~/skills</span>
+    <span class="term-title">ethan@larkin: ~/skills</span>
     <div class="mode-toggle" id="modeToggle">
       <button type="button" class="mode-btn" data-mode="interactive"><span class="mode-icon">⚡</span><span class="mode-label">Live</span></button>
       <button type="button" class="mode-btn" data-mode="raw"><span class="mode-icon">☰</span><span class="mode-label">Raw</span></button>
@@ -500,80 +506,72 @@ footer.site-footer .prompt2 { color: var(--add); }
   <div class="page-head">
     <div class="file-label">package.json</div>
     <h1 class="page-title">Skills &amp; stack</h1>
-    <p class="page-sub">Not a checklist — a rough coverage report. The percentage is confidence, not just familiarity: how sure I am things won't break at 2am.</p>
+    <p class="page-sub">The languages and tools I've used, and where I've used each one — in class, on team projects, or on my own.</p>
   </div>
 
   <section>
     <h2 class="gr">dependencies</h2>
-    <div class="pkg">
+    <div class="pkg" id="depsJson">
       <div class="ln">{</div>
-      <div class="ln">  <span class="key">"languages"</span><span class="punc">:</span> [<span class="str">"typescript"</span>, <span class="str">"go"</span>, <span class="str">"python"</span>, <span class="str">"sql"</span>],</div>
-      <div class="ln">  <span class="key">"backend"</span><span class="punc">:</span> [<span class="str">"node"</span>, <span class="str">"postgres"</span>, <span class="str">"redis"</span>, <span class="str">"grpc"</span>],</div>
-      <div class="ln">  <span class="key">"frontend"</span><span class="punc">:</span> [<span class="str">"react"</span>, <span class="str">"next.js"</span>],</div>
-      <div class="ln">  <span class="key">"infra"</span><span class="punc">:</span> [<span class="str">"docker"</span>, <span class="str">"aws-ecs"</span>, <span class="str">"github-actions"</span>],</div>
-      <div class="ln">  <span class="key">"learning"</span><span class="punc">:</span> [<span class="str">"rust"</span>, <span class="str">"kafka"</span>]</div>
+      <div class="ln">  <span class="key">"languages"</span><span class="punc">:</span> [<span class="str">"python"</span>, <span class="str">"java"</span>, <span class="str">"c"</span>, <span class="str">"c++"</span>, <span class="str">"cuda"</span>, <span class="str">"matlab"</span>, <span class="str">"javascript"</span>, <span class="str">"typescript"</span>, <span class="str">"sql"</span>, <span class="str">"bash"</span>],</div>
+      <div class="ln">  <span class="key">"web"</span><span class="punc">:</span> [<span class="str">"html"</span>, <span class="str">"css"</span>, <span class="str">"react"</span>, <span class="str">"next.js"</span>, <span class="str">"django"</span>],</div>
+      <div class="ln">  <span class="key">"databases"</span><span class="punc">:</span> [<span class="str">"postgresql"</span>, <span class="str">"sqlite"</span>],</div>
+      <div class="ln">  <span class="key">"cloud"</span><span class="punc">:</span> [<span class="str">"azure"</span>, <span class="str">"aws"</span>, <span class="str">"cloudflare"</span>],</div>
+      <div class="ln">  <span class="key">"messaging"</span><span class="punc">:</span> [<span class="str">"nats"</span>, <span class="str">"protobuf"</span>, <span class="str">"flatbuffers"</span>],</div>
+      <div class="ln">  <span class="key">"tools"</span><span class="punc">:</span> [<span class="str">"git"</span>, <span class="str">"gitlab-ci"</span>, <span class="str">"github"</span>, <span class="str">"docker"</span>, <span class="str">"podman"</span>, <span class="str">"kubernetes"</span>, <span class="str">"pytest-bdd"</span>, <span class="str">"rpm"</span>, <span class="str">"unix"</span>]</div>
       <div class="ln">}</div>
     </div>
   </section>
 
   <section>
-    <h2 class="gr">coverage --report<span class="tag">by category</span></h2>
+    <h2 class="gr">grep -r --include=* "used in"<span class="tag">by category</span></h2>
 
     <div class="coverage-group" id="languages">
       <div class="group-label">Languages</div>
-      <div class="cov-row"><span class="name">TypeScript</span><div class="cov-bar"><div class="cov-fill" style="width:92%"></div></div><span class="pct">92%</span></div>
-      <div class="cov-row"><span class="name">Go</span><div class="cov-bar"><div class="cov-fill" style="width:78%"></div></div><span class="pct">78%</span></div>
-      <div class="cov-row"><span class="name">SQL</span><div class="cov-bar"><div class="cov-fill" style="width:80%"></div></div><span class="pct">80%</span></div>
-      <div class="cov-row"><span class="name">Python</span><div class="cov-bar"><div class="cov-fill" style="width:55%"></div></div><span class="pct">55%</span></div>
+      <div class="used-row"><span class="name">Python</span><span class="where">L3Harris (pytest-bdd test suites, tooling), Portfolio Peak (price bot and ETF rebalancing script), banking app backend</span></div>
+      <div class="used-row"><span class="name">Java</span><span class="where">Coursework, including Data Structures</span></div>
+      <div class="used-row"><span class="name">C++ / C</span><span class="where">L3Harris (NATS messaging daemon), senior design drone (C++ and CUDA FFTs), coursework including UNIX Programming</span></div>
+      <div class="used-row"><span class="name">JavaScript</span><span class="where">L3Harris (3 web GUIs), Portfolio Peak frontend, this site</span></div>
+      <div class="used-row"><span class="name">TypeScript</span><span class="where">Banking app frontend, Drop a Bop</span></div>
+      <div class="used-row"><span class="name">SQL</span><span class="where">Portfolio Peak and banking app databases</span></div>
+      <div class="used-row"><span class="name">Bash</span><span class="where">L3Harris: the main scripting language for almost all of the scripts on our subsystems</span></div>
     </div>
 
-    <div class="coverage-group" id="backend-infra">
-      <div class="group-label">Backend &amp; infra</div>
-      <div class="cov-row"><span class="name">Postgres</span><div class="cov-bar"><div class="cov-fill" style="width:85%"></div></div><span class="pct">85%</span></div>
-      <div class="cov-row"><span class="name">Redis</span><div class="cov-bar"><div class="cov-fill" style="width:70%"></div></div><span class="pct">70%</span></div>
-      <div class="cov-row"><span class="name">Docker</span><div class="cov-bar"><div class="cov-fill" style="width:75%"></div></div><span class="pct">75%</span></div>
-      <div class="cov-row"><span class="name">AWS (ECS/S3)</span><div class="cov-bar"><div class="cov-fill" style="width:60%"></div></div><span class="pct">60%</span></div>
+    <div class="coverage-group" id="web">
+      <div class="group-label">Web &amp; frameworks</div>
+      <div class="used-row"><span class="name">HTML / CSS</span><span class="where">L3Harris (3 web GUIs), this site, Portfolio Peak sign-up and sign-in pages</span></div>
+      <div class="used-row"><span class="name">React</span><span class="where">Portfolio Peak dashboard, banking app (Next.js), Drop a Bop</span></div>
+      <div class="used-row"><span class="name">Django</span><span class="where">Portfolio Peak REST API, banking app backend</span></div>
     </div>
 
-    <div class="coverage-group" id="frontend">
-      <div class="group-label">Frontend</div>
-      <div class="cov-row"><span class="name">React</span><div class="cov-bar"><div class="cov-fill" style="width:68%"></div></div><span class="pct">68%</span></div>
-      <div class="cov-row"><span class="name">Next.js</span><div class="cov-bar"><div class="cov-fill" style="width:50%"></div></div><span class="pct">50%</span></div>
-    </div>
-
-    <div class="coverage-group" id="learning">
-      <div class="group-label">Currently learning <span style="opacity:0.6;">(low coverage, on purpose)</span></div>
-      <div class="cov-row"><span class="name">Rust</span><div class="cov-bar"><div class="cov-fill" style="width:20%; background: var(--amber-dim);"></div></div><span class="pct">20%</span></div>
-      <div class="cov-row"><span class="name">Kafka</span><div class="cov-bar"><div class="cov-fill" style="width:15%; background: var(--amber-dim);"></div></div><span class="pct">15%</span></div>
+    <div class="coverage-group" id="data-cloud">
+      <div class="group-label">Databases, cloud &amp; tooling</div>
+      <div class="used-row"><span class="name">PostgreSQL</span><span class="where">Portfolio Peak, banking app (hosted on Azure)</span></div>
+      <div class="used-row"><span class="name">SQLite</span><span class="where">L3Harris: the database for one of our self-contained microservices</span></div>
+      <div class="used-row"><span class="name">Azure</span><span class="where">Banking app: hosted database and Static Web Apps deployment</span></div>
+      <div class="used-row"><span class="name">AWS</span><span class="where">Drop a Bop: Lambda, API Gateway, DynamoDB, Cognito</span></div>
+      <div class="used-row"><span class="name">Cloudflare Pages</span><span class="where">Drop a Bop: hosts the front end</span></div>
+      <div class="used-row"><span class="name">Docker</span><span class="where">Portfolio Peak: frontend, backend and price bot containers</span></div>
+      <div class="used-row"><span class="name">Podman</span><span class="where">L3Harris: deploying our microservices together</span></div>
+      <div class="used-row"><span class="name">Kubernetes</span><span class="where">L3Harris: a software set that deploys several different analyst tools together</span></div>
+      <div class="used-row"><span class="name">CUDA</span><span class="where">Senior design drone: parallel FFTs on a Jetson Nano GPU, using unified memory</span></div>
+      <div class="used-row"><span class="name">MATLAB</span><span class="where">Senior design drone: original FFT design, later ported to C++ and CUDA</span></div>
+      <div class="used-row"><span class="name">GitLab CI/CD</span><span class="where">L3Harris: pipelines that build and package the ICD as RPMs</span></div>
+      <div class="used-row"><span class="name">NATS / protobuf</span><span class="where">L3Harris: moved 15 message types onto NATS with protobuf</span></div>
+      <div class="used-row"><span class="name">FlatBuffers</span><span class="where">L3Harris: a standardized message that anyone with the message definition can read, without the networking our protobuf messages rely on</span></div>
+      <div class="used-row"><span class="name">pytest-bdd</span><span class="where">L3Harris: 50+ test scenarios</span></div>
+      <div class="used-row"><span class="name">Git / GitHub</span><span class="where">Every project, including GitHub Actions deployments and GitHub Pages hosting for this site</span></div>
     </div>
   </section>
 
-  <section id="certifications">
-    <h2 class="gr">cat ~/resume/skills.json | jq '.certifications'</h2>
+  <section id="coursework">
+    <h2 class="gr">cat ~/resume/coursework.txt</h2>
     <div class="pkg">
-      <div class="ln">[</div>
-      <div class="ln">  {</div>
-      <div class="ln">    <span class="key">"name"</span><span class="punc">:</span> <span class="str">"AWS Certified Solutions Architect &ndash; Associate"</span><span class="punc">,</span></div>
-      <div class="ln">    <span class="key">"issuer"</span><span class="punc">:</span> <span class="str">"Amazon Web Services"</span><span class="punc">,</span></div>
-      <div class="ln">    <span class="key">"issued"</span><span class="punc">:</span> <span class="str">"2024-03"</span><span class="punc">,</span></div>
-      <div class="ln">    <span class="key">"expires"</span><span class="punc">:</span> <span class="str">"2027-03"</span><span class="punc">,</span></div>
-      <div class="ln">    <span class="key">"credential_url"</span><span class="punc">:</span> <span class="str">"<a class="pkg-link" href="https://www.credly.com/badges/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" target="_blank" rel="noopener noreferrer">https://www.credly.com/badges/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</a>"</span></div>
-      <div class="ln">  }<span class="punc">,</span></div>
-      <div class="ln">  {</div>
-      <div class="ln">    <span class="key">"name"</span><span class="punc">:</span> <span class="str">"Certified Kubernetes Administrator (CKA)"</span><span class="punc">,</span></div>
-      <div class="ln">    <span class="key">"issuer"</span><span class="punc">:</span> <span class="str">"The Linux Foundation"</span><span class="punc">,</span></div>
-      <div class="ln">    <span class="key">"issued"</span><span class="punc">:</span> <span class="str">"2023-11"</span><span class="punc">,</span></div>
-      <div class="ln">    <span class="key">"expires"</span><span class="punc">:</span> <span class="str">"2026-11"</span><span class="punc">,</span></div>
-      <div class="ln">    <span class="key">"credential_url"</span><span class="punc">:</span> <span class="str">"<a class="pkg-link" href="https://www.credential.net/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" target="_blank" rel="noopener noreferrer">https://www.credential.net/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</a>"</span></div>
-      <div class="ln">  }<span class="punc">,</span></div>
-      <div class="ln">  {</div>
-      <div class="ln">    <span class="key">"name"</span><span class="punc">:</span> <span class="str">"Google Data Analytics Professional Certificate"</span><span class="punc">,</span></div>
-      <div class="ln">    <span class="key">"issuer"</span><span class="punc">:</span> <span class="str">"Google"</span><span class="punc">,</span></div>
-      <div class="ln">    <span class="key">"issued"</span><span class="punc">:</span> <span class="str">"2023-06"</span><span class="punc">,</span></div>
-      <div class="ln">    <span class="key">"expires"</span><span class="punc">:</span> <span class="null">null</span><span class="punc">,</span></div>
-      <div class="ln">    <span class="key">"credential_url"</span><span class="punc">:</span> <span class="str">"<a class="pkg-link" href="https://www.coursera.org/verify/professional-cert/XXXXXXXXXXXX" target="_blank" rel="noopener noreferrer">https://www.coursera.org/verify/professional-cert/XXXXXXXXXXXX</a>"</span></div>
-      <div class="ln">  }</div>
-      <div class="ln">]</div>
+      <div class="ln">Data Structures</div>
+      <div class="ln">UNIX Programming</div>
+      <div class="ln">Software Engineering</div>
+      <div class="ln">Database Systems (CS 4347)</div>
+      <div class="ln">Data and Applications Security (CS 4389)</div>
     </div>
   </section>
 
@@ -586,5 +584,72 @@ footer.site-footer .prompt2 { color: var(--add); }
 <script src="search-data.js"></script>
 <script src="search.js"></script>
 <script src="site-mode.js"></script>
+<script>
+// Re-flows the dependencies JSON to fit its box: an array that doesn't fit on
+// one line breaks after "[" and packs its items onto indented lines, the way a
+// JSON formatter would, so the block never needs a horizontal scrollbar.
+(function () {
+  var box = document.getElementById('depsJson');
+  if (!box) return;
+  var entries = Array.prototype.slice.call(box.querySelectorAll('.ln')).filter(function (ln) {
+    return ln.querySelector('.key');
+  }).map(function (ln) {
+    return {
+      key: ln.querySelector('.key').textContent,
+      items: Array.prototype.map.call(ln.querySelectorAll('.str'), function (s) { return s.textContent; })
+    };
+  });
+
+  function span(cls, text) { return '<span class="' + cls + '">' + text + '</span>'; }
+  function line(html) { return '<div class="ln">' + html + '</div>'; }
+
+  function charsPerLine() {
+    var probe = document.createElement('span');
+    probe.className = 'ln';
+    probe.style.cssText = 'position:absolute;visibility:hidden;white-space:pre';
+    probe.textContent = '0000000000';
+    box.appendChild(probe);
+    var charW = probe.getBoundingClientRect().width / 10;
+    probe.remove();
+    var cs = getComputedStyle(box);
+    var inner = box.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    return Math.max(20, Math.floor(inner / charW));
+  }
+
+  function render() {
+    var max = charsPerLine();
+    var out = [line('{')];
+    entries.forEach(function (e, i) {
+      var comma = i < entries.length - 1 ? span('punc', ',') : '';
+      var head = '  ' + span('key', e.key) + span('punc', ':') + ' ';
+      var flat = '  ' + e.key + ': [' + e.items.join(', ') + ']' + (comma ? ',' : '');
+      if (flat.length <= max) {
+        out.push(line(head + '[' + e.items.map(function (x) { return span('str', x); }).join(', ') + ']' + comma));
+        return;
+      }
+      out.push(line(head + '['));
+      var row = [], len = 4;
+      e.items.forEach(function (x, j) {
+        var piece = x.length + (j < e.items.length - 1 ? 1 : 0);
+        if (row.length && len + 1 + piece > max) {
+          out.push(line('    ' + row.join(' ')));
+          row = []; len = 4;
+        }
+        row.push(span('str', x) + (j < e.items.length - 1 ? span('punc', ',') : ''));
+        len += (row.length > 1 ? 1 : 0) + piece;
+      });
+      if (row.length) out.push(line('    ' + row.join(' ')));
+      out.push(line('  ]' + comma));
+    });
+    out.push(line('}'));
+    box.innerHTML = out.join('');
+  }
+
+  render();
+  var t;
+  window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(render, 100); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(render);
+})();
+</script>
 </body>
 </html>

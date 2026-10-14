@@ -219,7 +219,9 @@ nav.tabs a.active::after {
   .mode-btn { font-size: 10.5px; padding: 4px 7px; }
   .mode-btn .mode-label { display: none; }
   .mode-btn.active .mode-label { display: inline; margin-left: 3px; }
-  nav.tabs a { padding: 10px 8px; font-size: 11.5px; }
+  nav.tabs { flex-wrap: wrap; gap: 1px; background: var(--border); overflow-x: visible; }
+  nav.tabs a { flex: 1 1 30%; padding: 10px 8px; font-size: 11.5px; border-right: none; background: var(--panel); }
+  nav.tabs a.active { background: var(--bg); }
   .search-row { padding: 8px 10px; }
   .search-input { font-size: 12.5px; }
   .search-results { left: 12px; right: 12px; }
@@ -385,6 +387,7 @@ h1.name {
 .status-badge { font-size: 10.5px; padding: 2px 8px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.04em; }
 .status-badge.wip { background: rgba(217,164,65,0.15); color: #D9A441; border: 1px solid #D9A441; }
 .status-badge.live { background: rgba(143,174,110,0.15); color: var(--add); border: 1px solid var(--add); }
+.status-badge.done { background: transparent; color: var(--cream-dim); border: 1px solid var(--border); }
 
 /* ---------------------------------------------
    Skills page — package.json + coverage bars
@@ -463,7 +466,7 @@ footer.site-footer .prompt2 { color: var(--add); }
 <div class="term-shell">
   <div class="term-bar">
     <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-    <span class="term-title">ethan@northlane: ~/projects</span>
+    <span class="term-title">ethan@larkin: ~/projects</span>
     <div class="mode-toggle" id="modeToggle">
       <button type="button" class="mode-btn" data-mode="interactive"><span class="mode-icon">⚡</span><span class="mode-label">Live</span></button>
       <button type="button" class="mode-btn" data-mode="raw"><span class="mode-icon">☰</span><span class="mode-label">Raw</span></button>
@@ -492,7 +495,26 @@ footer.site-footer .prompt2 { color: var(--add); }
   </div>
 
   <section id="projects">
-    <h2 class="gr">git log --oneline<span class="tag">2 commits</span></h2>
+    <h2 class="gr">git log --oneline<span class="tag">6 commits</span></h2>
+
+    <div class="commit" id="finrag">
+      <div class="commit-head">
+        <span class="ver">v3.1.0</span><span class="hash">#a8e31c</span>
+        <span class="status-badge wip">in progress</span>
+      </div>
+      <h3>FinRAG — cited Q&amp;A over SEC filings</h3>
+      <p>A retrieval-augmented generation (RAG) app that answers questions about public companies using their 10-K and 10-Q filings from SEC EDGAR. The goal: every answer cites the exact passage it came from, and the app says "I don't know" when the filings don't support an answer. I've just started building it, so the list below is the plan.</p>
+      <ul class="detail-list">
+        <li>Adding a company's ticker pulls its filings from SEC EDGAR's free API right away, and a daily job checks for new 10-Ks and 10-Qs</li>
+        <li>Splits filings into their sections (like Risk Factors and MD&amp;A) without breaking financial tables apart, embeds them with Voyage AI, and stores them in Postgres with pgvector</li>
+        <li>Hybrid search that combines keyword and vector results, reranks them, and filters by company and fiscal year</li>
+        <li>Answers written by Google Gemini, with a checker that confirms every quote and number actually appears in the passage it cites</li>
+        <li>An 80–100 question test set, including questions the filings can't answer, that measures retrieval accuracy, answer correctness, faithfulness and whether it declines when it should; numeric answers are double-checked against the SEC's XBRL financial data</li>
+        <li>Retrieval quality is re-tested automatically on every change; FastAPI and Streamlit app, deployed on Fly.io with Neon Postgres</li>
+        <li><strong>Built with the assistance of AI:</strong> Claude explains each design choice, and I write the key parts myself</li>
+      </ul>
+      <div class="tags"><span>Python</span><span>RAG</span><span>PostgreSQL</span><span>pgvector</span><span>FastAPI</span><span>Streamlit</span><span>Gemini</span><span>Voyage AI</span><span>AI-assisted</span></div>
+    </div>
 
     <div class="commit" id="dropabop">
       <div class="commit-head">
@@ -505,12 +527,12 @@ footer.site-footer .prompt2 { color: var(--add); }
         <li>Song search through Apple's catalog, links from Apple Music, Spotify or YouTube Music, and an in-app YouTube player</li>
         <li>Anonymous until results: who shared each song stays hidden while the week is open</li>
         <li>History calendar, taste stats, leaderboards, achievements, comments, saved songs and no repeat songs</li>
-        <li>Serverless on AWS (Lambda, API Gateway, DynamoDB, Cognito), defined as code with AWS SAM and built to cost close to $0</li>
+        <li>Front end hosted on Cloudflare Pages; back end serverless on AWS (Lambda, API Gateway, DynamoDB, Cognito), defined as code with AWS SAM and built to run at extremely low cost</li>
         <li>Around 1,000 automated tests (unit, database, browser at phone and desktop sizes) plus guardrails that block unsafe changes</li>
         <li><strong>Built with the assistance of AI:</strong> designed, written and tested together with Claude (Anthropic's AI) in Claude Code, with me deciding what to build and reviewing each step</li>
       </ul>
       <p><a href="https://dropabop-demo.pages.dev">→ try the demo</a> &nbsp;·&nbsp; <a href="https://dropabop.pages.dev">→ dropabop.pages.dev</a> &nbsp;·&nbsp; <a href="https://github.com/larkin-ethan/DropABop">→ source on GitHub</a></p>
-      <div class="tags"><span>TypeScript</span><span>React</span><span>AWS Lambda</span><span>DynamoDB</span><span>AWS SAM</span><span>AI-assisted</span></div>
+      <div class="tags"><span>TypeScript</span><span>React</span><span>AWS Lambda</span><span>DynamoDB</span><span>AWS SAM</span><span>Cloudflare Pages</span><span>AI-assisted</span></div>
     </div>
 
     <div class="commit" id="portfolio">
@@ -523,12 +545,66 @@ footer.site-footer .prompt2 { color: var(--add); }
       <ul class="detail-list">
         <li>Plain HTML, CSS and JavaScript with no framework or build step</li>
         <li>Interactive terminal on the home page (try "cd projects") and site-wide search across every page</li>
-        <li>Live / Raw toggle that turns the animations off, defaulting to Raw for visitors who prefer reduced motion</li>
+        <li>Live / Raw toggle: Raw shows everything as a plain page by default, and Live turns on the terminal animations</li>
         <li>Responsive layout that works at phone and desktop sizes</li>
         <li><strong>Built with the assistance of AI:</strong> designed and written together with Claude (Anthropic's AI) in Claude Code, with me deciding what goes on the site and reviewing each change</li>
       </ul>
       <p><a href="https://larkin-ethan.github.io">→ larkin-ethan.github.io</a> &nbsp;·&nbsp; <a href="https://github.com/larkin-ethan/larkin-ethan.github.io">→ source on GitHub</a></p>
       <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>GitHub Pages</span><span>AI-assisted</span></div>
+    </div>
+
+    <div class="commit" id="df-drone">
+      <div class="commit-head">
+        <span class="ver">v1.2.0</span><span class="hash">#d4f7e2</span>
+        <span class="status-badge done">senior design</span>
+      </div>
+      <h3>Direction-Finding Drone</h3>
+      <p>My UT Dallas senior design project, sponsored by L3Harris: an autonomous drone that finds a specific radio signal and turns to face it. I was on the 5-person computer science team, working alongside a 6-person computer engineering team, in fall 2024.</p>
+      <ul class="detail-list">
+        <li>A software-defined radio (SDR) captures the signal, and a Jetson Nano computes its FFTs in close to real time</li>
+        <li>FFTs run in parallel on the Jetson Nano's GPU, written in C++ and CUDA on Linux</li>
+        <li>A live spectrogram plots the FFT results and updates in real time as the signal changes</li>
+        <li>Our team delivered the real-time signal processing that the drone's direction finding builds on</li>
+        <li><strong>My part:</strong> I helped design the original FFT processing in MATLAB and wrote CUDA FFT code when it was converted to C++ and CUDA. I also led the switch to unified memory so the CPU and GPU share the same data instead of copying it back and forth, which cut computation time, and helped connect the FFT output to the live spectrogram</li>
+      </ul>
+      <div class="tags"><span>C++</span><span>CUDA</span><span>Jetson Nano</span><span>Linux</span><span>FFT</span><span>SDR</span><span>MATLAB</span></div>
+    </div>
+
+    <div class="commit" id="banking-app">
+      <div class="commit-head">
+        <span class="ver">v1.1.0</span><span class="hash">#58628f</span>
+        <span class="status-badge done">class project</span>
+      </div>
+      <h3>Banking Application</h3>
+      <p>A banking web app built with a team of five for a Data and Applications Security class at UT Dallas. Users create an account, sign in, and send money to each other, and the point of the project was keeping every one of those steps secure.</p>
+      <ul class="detail-list">
+        <li>Users sign up, sign in and are given a token when they log in</li>
+        <li>Transfers between users update both balances and are refused if the sender doesn't have enough money</li>
+        <li>Transaction details are encrypted with 2048-bit RSA keys, so they aren't sent in plain text</li>
+        <li>Passwords and Social Security numbers are hashed before they're stored, and SSNs are checked for a valid format</li>
+        <li>Next.js (React) and TypeScript frontend with form validation, and a Python / Django backend</li>
+        <li><strong>My part:</strong> I created the project, set up automatic deployment to Azure Static Web Apps with GitHub Actions, connected the Django backend to a PostgreSQL database hosted on Microsoft Azure, and designed the database models for members, bank accounts and transactions</li>
+      </ul>
+      <p><a href="https://github.com/larkin-ethan/CS4389_Banking_Application">→ source on GitHub</a></p>
+      <div class="tags"><span>TypeScript</span><span>React</span><span>Python</span><span>Django</span><span>PostgreSQL</span><span>Azure</span></div>
+    </div>
+
+    <div class="commit" id="portfolio-peak">
+      <div class="commit-head">
+        <span class="ver">v1.0.0</span><span class="hash">#cad67c</span>
+        <span class="status-badge done">class project</span>
+      </div>
+      <h3>Portfolio Peak — portfolio diversification website</h3>
+      <p>A stock portfolio site built with a team of five for a Database Systems class at UT Dallas. Users enter the stocks they own and how they want their money split between large, mid-size and small companies, and the site suggests how many shares of each to buy to get there.</p>
+      <ul class="detail-list">
+        <li>PostgreSQL database storing users, their stocks, target splits, cash balances and past suggestions</li>
+        <li>A price bot updates every stock to the current market price once a minute and calculates one-week and five-year growth</li>
+        <li>React dashboard with a pie chart of the portfolio's current split and a table of stock stats</li>
+        <li>Django REST API with token sign-in; the frontend, backend and price bot each run in their own Docker container</li>
+        <li><strong>My part:</strong> I created the project and wrote its first piece, a Python script that pulled live ETF prices and worked out how many shares to buy to keep an IRA balanced. I also designed the first sign-up and sign-in pages and worked on the price bot</li>
+      </ul>
+      <p><a href="https://github.com/larkin-ethan/CS4347_Database_Project">→ source on GitHub</a></p>
+      <div class="tags"><span>React</span><span>JavaScript</span><span>Python</span><span>Django</span><span>PostgreSQL</span><span>Docker</span></div>
     </div>
   </section>
 

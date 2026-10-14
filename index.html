@@ -220,7 +220,9 @@ nav.tabs a.active::after {
   .mode-btn { font-size: 10.5px; padding: 4px 7px; }
   .mode-btn .mode-label { display: none; }
   .mode-btn.active .mode-label { display: inline; margin-left: 3px; }
-  nav.tabs a { padding: 10px 8px; font-size: 11.5px; }
+  nav.tabs { flex-wrap: wrap; gap: 1px; background: var(--border); overflow-x: visible; }
+  nav.tabs a { flex: 1 1 30%; padding: 10px 8px; font-size: 11.5px; border-right: none; background: var(--panel); }
+  nav.tabs a.active { background: var(--bg); }
   .search-row { padding: 8px 10px; }
   .search-input { font-size: 12.5px; }
   .search-results { left: 12px; right: 12px; }
@@ -448,8 +450,7 @@ h1.name {
 .vim-view[hidden] { display: none; }
 .vim-buffer {
   flex: 1 1 auto;
-  height: 300px;
-  overflow: hidden;
+  min-height: 300px;
   font-size: 13px;
   line-height: 1.55;
 }
@@ -672,7 +673,7 @@ footer.site-footer .prompt2 { color: var(--add); }
 <div class="term-shell">
   <div class="term-bar">
     <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-    <span class="term-title">ethan@northlane: ~</span>
+    <span class="term-title">ethan@larkin: ~</span>
     <div class="mode-toggle" id="modeToggle">
       <button type="button" class="mode-btn" data-mode="interactive"><span class="mode-icon">⚡</span><span class="mode-label">Live</span></button>
       <button type="button" class="mode-btn" data-mode="raw"><span class="mode-icon">☰</span><span class="mode-label">Raw</span></button>
@@ -698,7 +699,7 @@ footer.site-footer .prompt2 { color: var(--add); }
     <div class="hero-term">
       <div class="term-bar">
         <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="term-title">ethan@northlane: ~</span>
+        <span class="term-title">ethan@larkin: ~</span>
       </div>
       <div class="tmux-panes" id="tmuxPanes">
         <div class="tmux-pane pane-photo" id="panePhoto">
@@ -710,7 +711,7 @@ footer.site-footer .prompt2 { color: var(--add); }
       </div>
       <div class="tmux-status" id="tmuxStatus">
         <span class="tmux-status-left">[ethan] 0:bash*</span>
-        <span class="tmux-status-right">"northlane" 80x24</span>
+        <span class="tmux-status-right">"larkin" 80x24</span>
       </div>
     </div>
 
@@ -731,8 +732,8 @@ footer.site-footer .prompt2 { color: var(--add); }
       </div>
       <div class="term-step" data-cmd="cat SUMMARY.md" data-pane="info">
         <div class="term-result">
-          <p class="tagline">Software engineer, 2 years in. Also: mediocre baker, competitive board-gamer, plant parent to one stubborn fiddle-leaf fig.</p>
-          <p class="bio-lede">I write backend code for a living and think about systems more than is probably healthy — but this page is less about the job title and more about who's actually typing.</p>
+          <p class="tagline">Associate Software Engineer at L3Harris and UT Dallas computer science graduate, based in Farmersville, Texas.</p>
+          <p class="bio-lede">I've held a job the whole way through school while learning to build software. This page is about the code I write and the person writing it.</p>
         </div>
       </div>
     </template>
@@ -742,7 +743,6 @@ footer.site-footer .prompt2 { color: var(--add); }
       <a href="projects.html">→ what I've built</a>
       <a href="skills.html">→ what I know</a>
       <a href="contact.html">→ get in touch</a>
-      <a href="mailto:larkinethan02@gmail.com">→ say hi</a>
     </div>
   </section>
 
@@ -750,7 +750,7 @@ footer.site-footer .prompt2 { color: var(--add); }
     <div class="hero-term about-term" id="aboutTerm" tabindex="0">
       <div class="term-bar">
         <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="term-title">ethan@northlane: ~</span>
+        <span class="term-title">ethan@larkin: ~</span>
       </div>
       <div class="term-body about-term-body">
         <div class="about-prompt" id="aboutPrompt">
@@ -767,11 +767,11 @@ footer.site-footer .prompt2 { color: var(--add); }
           <div class="vim-buffer">
             <div class="vim-line"><span class="ln">1</span><span class="txt"># About Me</span></div>
             <div class="vim-line"><span class="ln">2</span><span class="txt"></span></div>
-            <div class="vim-line"><span class="ln">3</span><span class="txt">I got into programming the unglamorous way — fixing a spreadsheet macro for a summer job that nobody else wanted to touch, and realizing I liked untangling the broken thing more than I liked the job itself. Two years later, that's still basically what I do, just with better tools.</span></div>
+            <div class="vim-line"><span class="ln">3</span><span class="txt">I started my computer science degree at Collin County Community College, finished my associate's degree there in 2023, and transferred to the University of Texas at Dallas, where I earned my bachelor's in 2025. Classes like Data Structures, UNIX Programming and Software Engineering gave me the foundation I build everything else on.</span></div>
             <div class="vim-line"><span class="ln">4</span><span class="txt"></span></div>
-            <div class="vim-line"><span class="ln">5</span><span class="txt">Outside of work I'm usually deep in a board game rulebook, attempting a new bread recipe that will probably not rise properly, or losing an argument with my fig tree about whether it's getting enough light. I read more nonfiction than I finish, and I have strong, mostly indefensible opinions about tabs vs. spaces that I will not be sharing here.</span></div>
+            <div class="vim-line"><span class="ln">5</span><span class="txt">Today I'm an Associate Software Engineer at L3Harris, working on Fusion ELINT. Before that, I worked the whole way through school — at Whataburger, at QuikTrip, and for three years doing maintenance at Emerald Cottages. None of those jobs involved code, but they taught me things that carry over: show up reliably, keep things moving when it gets busy, and fix what's actually broken instead of what just looks broken.</span></div>
             <div class="vim-line"><span class="ln">6</span><span class="txt"></span></div>
-            <div class="vim-line"><span class="ln">7</span><span class="txt">At work, I care about the same thing in both code and conversation: say the true thing plainly. I'd rather ship something small and honest about its limitations than something impressive that quietly doesn't work.</span></div>
+            <div class="vim-line"><span class="ln">7</span><span class="txt">Most of what I've built started as a team project for class: a stock portfolio site that updates prices every minute, and a banking app that encrypts transfers between users. On my own, I built Drop a Bop, a music-sharing app for my friends, with the help of AI. I like projects that take something messy and manual and turn it into something that just works.</span></div>
             <div class="vim-tilde">~</div>
             <div class="vim-tilde">~</div>
             <div class="vim-tilde">~</div>
@@ -782,16 +782,16 @@ footer.site-footer .prompt2 { color: var(--add); }
             <div class="vim-tilde">~</div>
           </div>
           <div class="vim-statusline">
-            <span id="vimMsg">"ABOUTME.md" 7L, 812C</span>
+            <span id="vimMsg">"ABOUTME.md" 7L, 1127C</span>
             <button type="button" class="vim-tap-btn vim-close-btn" id="aboutCloseBtn">✕ close</button>
           </div>
         </div>
 
         <div class="about-plain" id="aboutPlain" hidden>
           <h2 class="about-plain-heading">About Me</h2>
-          <p>I got into programming the unglamorous way — fixing a spreadsheet macro for a summer job that nobody else wanted to touch, and realizing I liked untangling the broken thing more than I liked the job itself. Two years later, that's still basically what I do, just with better tools.</p>
-          <p>Outside of work I'm usually deep in a board game rulebook, attempting a new bread recipe that will probably not rise properly, or losing an argument with my fig tree about whether it's getting enough light. I read more nonfiction than I finish, and I have strong, mostly indefensible opinions about tabs vs. spaces that I will not be sharing here.</p>
-          <p>At work, I care about the same thing in both code and conversation: say the true thing plainly. I'd rather ship something small and honest about its limitations than something impressive that quietly doesn't work.</p>
+          <p>I started my computer science degree at Collin County Community College, finished my associate's degree there in 2023, and transferred to the University of Texas at Dallas, where I earned my bachelor's in 2025. Classes like Data Structures, UNIX Programming and Software Engineering gave me the foundation I build everything else on.</p>
+          <p>Today I'm an Associate Software Engineer at L3Harris, working on Fusion ELINT. Before that, I worked the whole way through school — at Whataburger, at QuikTrip, and for three years doing maintenance at Emerald Cottages. None of those jobs involved code, but they taught me things that carry over: show up reliably, keep things moving when it gets busy, and fix what's actually broken instead of what just looks broken.</p>
+          <p>Most of what I've built started as a team project for class: a stock portfolio site that updates prices every minute, and a banking app that encrypts transfers between users. On my own, I built Drop a Bop, a music-sharing app for my friends, with the help of AI. I like projects that take something messy and manual and turn it into something that just works.</p>
         </div>
       </div>
     </div>
@@ -809,12 +809,12 @@ footer.site-footer .prompt2 { color: var(--add); }
     <div class="file-label">env</div>
     <h2 class="gr">Quick facts</h2>
     <div class="env-grid">
-      <div class="env-item"><span class="k">$LOCATION</span><span class="v">Seattle, WA</span></div>
-      <div class="env-item"><span class="k">$UPTIME</span><span class="v">2 years, 1 company</span></div>
-      <div class="env-item"><span class="k">$CURRENTLY_LEARNING</span><span class="v">Rust, sourdough</span></div>
-      <div class="env-item"><span class="k">$EDITOR</span><span class="v">Neovim, unfortunately proud of it</span></div>
-      <div class="env-item"><span class="k">$COFFEE_OR_TEA</span><span class="v">Tea, but I'll fight for good coffee</span></div>
-      <div class="env-item"><span class="k">$CURRENTLY_PLAYING</span><span class="v">Whatever board game won't fit back in its box</span></div>
+      <div class="env-item"><span class="k">$LOCATION</span><span class="v">Farmersville, TX</span></div>
+      <div class="env-item"><span class="k">$ROLE</span><span class="v">Associate Software Engineer, L3Harris</span></div>
+      <div class="env-item"><span class="k">$DEGREE</span><span class="v">B.S. Computer Science, UT Dallas (2025)</span></div>
+      <div class="env-item"><span class="k">$LANGUAGES</span><span class="v">Python, C++, JavaScript, Java, C</span></div>
+      <div class="env-item"><span class="k">$LATEST_PROJECT</span><span class="v">Drop a Bop, a music-sharing app</span></div>
+      <div class="env-item"><span class="k">$WORK_HISTORY</span><span class="v">L3Harris, QuikTrip, Emerald Cottages, Whataburger</span></div>
     </div>
   </section>
 
@@ -825,7 +825,7 @@ footer.site-footer .prompt2 { color: var(--add); }
     <div class="hero-term ls-term" id="lsTerm" hidden>
       <div class="term-bar">
         <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="term-title">ethan@northlane: ~</span>
+        <span class="term-title">ethan@larkin: ~</span>
       </div>
       <div class="term-body ls-term-body">
         <div class="term-row"><span class="prompt-sym">$ </span><span class="typed-cmd">ls -la</span></div>
@@ -849,7 +849,7 @@ drwxr-xr-x   4 ethan  staff   128 Aug 13 09:41 <span class="ls-dir">contact</spa
       <a class="nav-card" href="experience.html">
         <span class="cmd">$ cd experience</span>
         <h3>Experience</h3>
-        <p>Two years, one company, one promotion, a lot of on-call shifts.</p>
+        <p>Software engineering at L3Harris, plus the jobs and schools that got me there.</p>
         <span class="arrow">→ view roles</span>
       </a>
       <a class="nav-card" href="projects.html">
@@ -861,7 +861,7 @@ drwxr-xr-x   4 ethan  staff   128 Aug 13 09:41 <span class="ls-dir">contact</spa
       <a class="nav-card" href="skills.html">
         <span class="cmd">$ cd skills</span>
         <h3>Skills</h3>
-        <p>The stack, and roughly how comfortable I am in each part of it.</p>
+        <p>The languages and tools I use, and where I've used each one.</p>
         <span class="arrow">→ view stack</span>
       </a>
       <a class="nav-card" href="contact.html">
@@ -875,7 +875,7 @@ drwxr-xr-x   4 ethan  staff   128 Aug 13 09:41 <span class="ls-dir">contact</spa
 
   <footer class="site-footer">
     <div class="prompt2">$ echo "thanks for stopping by"</div>
-    <div style="margin-top:6px;">larkinethan02@gmail.com · <a href="#">github</a> · <a href="#">linkedin</a></div>
+    <div style="margin-top:6px;">larkinethan02@gmail.com · <a href="https://github.com/larkin-ethan">github</a> · <a href="https://www.linkedin.com/in/ethan-larkin-a51058294">linkedin</a> · <a href="files/Ethan_Larkin_Resume.pdf" download>resume</a></div>
   </footer>
 
 </div>
@@ -1016,7 +1016,7 @@ drwxr-xr-x   4 ethan  staff   128 Aug 13 09:41 <span class="ls-dir">contact</spa
     setActivePane('info');
   }
 
-  async function runCycle(token) {
+  async function runOnce(token) {
     photoBody.innerHTML = '';
     infoBody.innerHTML = '';
     tmuxStatus.classList.remove('visible');
@@ -1058,18 +1058,11 @@ drwxr-xr-x   4 ethan  staff   128 Aug 13 09:41 <span class="ls-dir">contact</spa
     idle.className = 'cursor';
     idle.textContent = '▋';
     infoBody.appendChild(idle);
-    await sleep(2600);
-  }
-
-  async function loopForever(token) {
-    while (token === runToken) {
-      await runCycle(token);
-    }
   }
 
   function startInteractive() {
     runToken++;
-    loopForever(runToken);
+    runOnce(runToken);
   }
 
   function startRaw() {
@@ -1118,7 +1111,7 @@ drwxr-xr-x   4 ethan  staff   128 Aug 13 09:41 <span class="ls-dir">contact</spa
     cmdBuffer = '';
     prompt.hidden = true;
     vimView.hidden = false;
-    setMsg('"ABOUTME.md" 7L, 812C');
+    setMsg('"ABOUTME.md" 7L, 1127C');
     clearTimeout(msgTimer);
     msgTimer = setTimeout(function () { setMsg(IDLE_HINT); }, 1200);
   }
