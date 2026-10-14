@@ -495,14 +495,14 @@ footer.site-footer .prompt2 { color: var(--add); }
   </div>
 
   <section id="projects">
-    <h2 class="gr">git log --oneline<span class="tag">6 commits</span></h2>
+    <h2 class="gr">git log --oneline<span class="tag">7 commits</span></h2>
 
-    <div class="commit" id="finrag">
+    <div class="commit" id="filings-iq">
       <div class="commit-head">
         <span class="ver">v3.1.0</span><span class="hash">#a8e31c</span>
         <span class="status-badge wip">in progress</span>
       </div>
-      <h3>FinRAG — cited Q&amp;A over SEC filings</h3>
+      <h3>Filings IQ — cited Q&amp;A over SEC filings</h3>
       <p>A retrieval-augmented generation (RAG) app that answers questions about public companies using their 10-K and 10-Q filings from SEC EDGAR. The goal: every answer cites the exact passage it came from, and the app says "I don't know" when the filings don't support an answer. I've just started building it, so the list below is the plan.</p>
       <ul class="detail-list">
         <li>Adding a company's ticker pulls its filings from SEC EDGAR's free API right away, and a daily job checks for new 10-Ks and 10-Qs</li>
@@ -521,7 +521,7 @@ footer.site-footer .prompt2 { color: var(--add); }
         <span class="ver">v3.0.0</span><span class="hash">#6c30a7</span>
         <span class="status-badge live">live</span>
       </div>
-      <h3>Drop a Bop</h3>
+      <h3>Drop a Bop — music rating app</h3>
       <p>A private music-sharing app for friend groups and coworkers: every weekday each member shares one song, everyone rates the week's songs from 0 to 10, and when ratings lock on Sunday the results, stats and leaderboard are revealed. It moved my group's song-of-the-day spreadsheet into a real app, history included.</p>
       <ul class="detail-list">
         <li>Song search through Apple's catalog, links from Apple Music, Spotify or YouTube Music, and an in-app YouTube player</li>
@@ -533,6 +533,23 @@ footer.site-footer .prompt2 { color: var(--add); }
       </ul>
       <p><a href="https://dropabop-demo.pages.dev">→ try the demo</a> &nbsp;·&nbsp; <a href="https://dropabop.pages.dev">→ dropabop.pages.dev</a> &nbsp;·&nbsp; <a href="https://github.com/larkin-ethan/DropABop">→ source on GitHub</a></p>
       <div class="tags"><span>TypeScript</span><span>React</span><span>AWS Lambda</span><span>DynamoDB</span><span>AWS SAM</span><span>Cloudflare Pages</span><span>AI-assisted</span></div>
+    </div>
+
+    <div class="commit" id="loom">
+      <div class="commit-head">
+        <span class="ver">v2.5.0</span><span class="hash">#7b2e9d</span>
+        <span class="status-badge wip">in progress</span>
+      </div>
+      <h3>Loom — AI resume tailor</h3>
+      <p>A career vault and AI resume tailor. You log your work history, skills and projects once; when you find a job posting, Loom checks it against your vault and rewrites your resume around it, using only what you've actually logged.</p>
+      <ul class="detail-list">
+        <li>Analyze a posting for matches and gaps, generate a tailored resume with a note on why each line is there, then export to PDF or Word with an optional cover letter</li>
+        <li>Grounding is enforced in code: every AI-written line must link to a real vault entry, checked on the server before it's shown</li>
+        <li>An anonymized AI second opinion scores each resume the way a hiring manager would</li>
+        <li>Pipeline board, job search and mock interviews; Stripe plan tiers and Supabase Postgres with row-level security</li>
+        <li><strong>Built with the assistance of AI:</strong> written and tested with Claude in Claude Code, with me deciding what to build and reviewing each step</li>
+      </ul>
+      <div class="tags"><span>TypeScript</span><span>Next.js</span><span>Supabase</span><span>PostgreSQL</span><span>Gemini</span><span>Stripe</span><span>Vercel</span><span>AI-assisted</span></div>
     </div>
 
     <div class="commit" id="portfolio">

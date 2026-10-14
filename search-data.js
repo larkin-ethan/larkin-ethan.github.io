@@ -57,12 +57,16 @@ window.SEARCH_INDEX = [
     text: 'Associate degree in computer science in McKinney, TX.'
   },
   {
-    page: 'projects.html', anchor: 'finrag', heading: 'FinRAG — cited Q&A over SEC filings (in progress)',
+    page: 'projects.html', anchor: 'filings-iq', heading: 'Filings IQ — cited Q&A over SEC filings (in progress)',
     text: 'A RAG app that answers questions about public companies from their SEC 10-K and 10-Q filings, citing the exact passage and saying I don\'t know when the filings do not support an answer. Python, Postgres with pgvector, hybrid search, Voyage AI, Gemini, FastAPI, Streamlit. Built with the assistance of AI.'
   },
   {
-    page: 'projects.html', anchor: 'dropabop', heading: 'Drop a Bop (live)',
+    page: 'projects.html', anchor: 'dropabop', heading: 'Drop a Bop — music rating app (live)',
     text: 'A private music-sharing app: share a song each weekday, rate the week 0 to 10, results on Sunday. Try the demo without signing up. Built with the assistance of AI (Claude). TypeScript, React, AWS Lambda, DynamoDB, AWS SAM, hosted on Cloudflare Pages.'
+  },
+  {
+    page: 'projects.html', anchor: 'loom', heading: 'Loom — AI resume tailor (in progress)',
+    text: 'A career vault and AI resume tailor that rewrites your resume for a job posting using only what is in your vault, with an anonymized AI second opinion, a pipeline board and PDF or Word export. Next.js, TypeScript, Supabase, Gemini, Stripe, Vercel. Built with the assistance of AI.'
   },
   {
     page: 'projects.html', anchor: 'portfolio', heading: 'This portfolio site (live)',
@@ -85,12 +89,12 @@ window.SEARCH_INDEX = [
     text: 'Python, Java, C, C++, CUDA, MATLAB, JavaScript, TypeScript, SQL, Bash.'
   },
   {
-    page: 'skills.html', anchor: 'web', heading: 'Web & frameworks',
-    text: 'HTML, CSS, React, Next.js, Django.'
+    page: 'skills.html', anchor: 'web', heading: 'Web, frameworks & APIs',
+    text: 'HTML, CSS, React, Next.js, Django, Gemini API, Stripe.'
   },
   {
     page: 'skills.html', anchor: 'data-cloud', heading: 'Databases & cloud',
-    text: 'PostgreSQL, SQLite, Azure, AWS, Cloudflare Pages, Docker, Podman, Kubernetes, GitLab CI/CD, NATS, protobuf, FlatBuffers, pytest-bdd, Git and GitHub.'
+    text: 'PostgreSQL, SQLite, Supabase, Redis, Azure, AWS, Cloudflare Pages, Vercel, Docker, Podman, Kubernetes, GitLab CI/CD, NATS, protobuf, FlatBuffers, pytest-bdd, Vitest, Playwright, Git and GitHub.'
   },
   {
     page: 'skills.html', anchor: 'coursework', heading: 'Coursework',
@@ -102,6 +106,6 @@ window.SEARCH_INDEX = [
   },
   {
     page: 'index.html', anchor: 'sitemap', heading: 'Site sections',
-    text: 'Experience: L3Harris, three earlier jobs and two schools. Projects: FinRAG, Drop a Bop, this site, a senior design drone, a banking app and Portfolio Peak. Skills: the languages and tools I use. Contact: email, GitHub, LinkedIn.'
+    text: 'Experience: L3Harris, three earlier jobs and two schools. Projects: Filings IQ, Drop a Bop, Loom, this site, a senior design drone, a banking app and Portfolio Peak. Skills: the languages and tools I use. Contact: email, GitHub, LinkedIn.'
   }
 ];

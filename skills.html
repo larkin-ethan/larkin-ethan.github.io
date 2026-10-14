@@ -515,10 +515,11 @@ footer.site-footer .prompt2 { color: var(--add); }
       <div class="ln">{</div>
       <div class="ln">  <span class="key">"languages"</span><span class="punc">:</span> [<span class="str">"python"</span>, <span class="str">"java"</span>, <span class="str">"c"</span>, <span class="str">"c++"</span>, <span class="str">"cuda"</span>, <span class="str">"matlab"</span>, <span class="str">"javascript"</span>, <span class="str">"typescript"</span>, <span class="str">"sql"</span>, <span class="str">"bash"</span>],</div>
       <div class="ln">  <span class="key">"web"</span><span class="punc">:</span> [<span class="str">"html"</span>, <span class="str">"css"</span>, <span class="str">"react"</span>, <span class="str">"next.js"</span>, <span class="str">"django"</span>],</div>
-      <div class="ln">  <span class="key">"databases"</span><span class="punc">:</span> [<span class="str">"postgresql"</span>, <span class="str">"sqlite"</span>],</div>
-      <div class="ln">  <span class="key">"cloud"</span><span class="punc">:</span> [<span class="str">"azure"</span>, <span class="str">"aws"</span>, <span class="str">"cloudflare"</span>],</div>
+      <div class="ln">  <span class="key">"databases"</span><span class="punc">:</span> [<span class="str">"postgresql"</span>, <span class="str">"sqlite"</span>, <span class="str">"supabase"</span>, <span class="str">"redis"</span>],</div>
+      <div class="ln">  <span class="key">"cloud"</span><span class="punc">:</span> [<span class="str">"azure"</span>, <span class="str">"aws"</span>, <span class="str">"cloudflare"</span>, <span class="str">"vercel"</span>],</div>
       <div class="ln">  <span class="key">"messaging"</span><span class="punc">:</span> [<span class="str">"nats"</span>, <span class="str">"protobuf"</span>, <span class="str">"flatbuffers"</span>],</div>
-      <div class="ln">  <span class="key">"tools"</span><span class="punc">:</span> [<span class="str">"git"</span>, <span class="str">"gitlab-ci"</span>, <span class="str">"github"</span>, <span class="str">"docker"</span>, <span class="str">"podman"</span>, <span class="str">"kubernetes"</span>, <span class="str">"pytest-bdd"</span>, <span class="str">"rpm"</span>, <span class="str">"unix"</span>]</div>
+      <div class="ln">  <span class="key">"apis"</span><span class="punc">:</span> [<span class="str">"gemini"</span>, <span class="str">"stripe"</span>],</div>
+      <div class="ln">  <span class="key">"tools"</span><span class="punc">:</span> [<span class="str">"git"</span>, <span class="str">"gitlab-ci"</span>, <span class="str">"github"</span>, <span class="str">"docker"</span>, <span class="str">"podman"</span>, <span class="str">"kubernetes"</span>, <span class="str">"pytest-bdd"</span>, <span class="str">"vitest"</span>, <span class="str">"playwright"</span>, <span class="str">"rpm"</span>, <span class="str">"unix"</span>]</div>
       <div class="ln">}</div>
     </div>
   </section>
@@ -532,25 +533,31 @@ footer.site-footer .prompt2 { color: var(--add); }
       <div class="used-row"><span class="name">Java</span><span class="where">Coursework, including Data Structures</span></div>
       <div class="used-row"><span class="name">C++ / C</span><span class="where">L3Harris (NATS messaging daemon), senior design drone (C++ and CUDA FFTs), coursework including UNIX Programming</span></div>
       <div class="used-row"><span class="name">JavaScript</span><span class="where">L3Harris (3 web GUIs), Portfolio Peak frontend, this site</span></div>
-      <div class="used-row"><span class="name">TypeScript</span><span class="where">Banking app frontend, Drop a Bop</span></div>
+      <div class="used-row"><span class="name">TypeScript</span><span class="where">Loom, Drop a Bop, banking app frontend</span></div>
       <div class="used-row"><span class="name">SQL</span><span class="where">Portfolio Peak and banking app databases</span></div>
       <div class="used-row"><span class="name">Bash</span><span class="where">L3Harris: the main scripting language for almost all of the scripts on our subsystems</span></div>
     </div>
 
     <div class="coverage-group" id="web">
-      <div class="group-label">Web &amp; frameworks</div>
+      <div class="group-label">Web, frameworks &amp; APIs</div>
       <div class="used-row"><span class="name">HTML / CSS</span><span class="where">L3Harris (3 web GUIs), this site, Portfolio Peak sign-up and sign-in pages</span></div>
-      <div class="used-row"><span class="name">React</span><span class="where">Portfolio Peak dashboard, banking app (Next.js), Drop a Bop</span></div>
+      <div class="used-row"><span class="name">React</span><span class="where">Loom, Drop a Bop, Portfolio Peak dashboard, banking app</span></div>
+      <div class="used-row"><span class="name">Next.js</span><span class="where">Loom (App Router, server-side plan checks), banking app frontend</span></div>
       <div class="used-row"><span class="name">Django</span><span class="where">Portfolio Peak REST API, banking app backend</span></div>
+      <div class="used-row"><span class="name">Gemini API</span><span class="where">Loom: resume tailoring, import parsing and the anonymized second opinion</span></div>
+      <div class="used-row"><span class="name">Stripe</span><span class="where">Loom: plan tiers and billing</span></div>
     </div>
 
     <div class="coverage-group" id="data-cloud">
       <div class="group-label">Databases, cloud &amp; tooling</div>
-      <div class="used-row"><span class="name">PostgreSQL</span><span class="where">Portfolio Peak, banking app (hosted on Azure)</span></div>
+      <div class="used-row"><span class="name">PostgreSQL</span><span class="where">Loom (Supabase, row-level security on every table), Portfolio Peak, banking app (hosted on Azure)</span></div>
+      <div class="used-row"><span class="name">Supabase</span><span class="where">Loom: Postgres, sign-in and file storage</span></div>
+      <div class="used-row"><span class="name">Redis (Upstash)</span><span class="where">Loom: rate limiting</span></div>
       <div class="used-row"><span class="name">SQLite</span><span class="where">L3Harris: the database for one of our self-contained microservices</span></div>
       <div class="used-row"><span class="name">Azure</span><span class="where">Banking app: hosted database and Static Web Apps deployment</span></div>
       <div class="used-row"><span class="name">AWS</span><span class="where">Drop a Bop: Lambda, API Gateway, DynamoDB, Cognito</span></div>
       <div class="used-row"><span class="name">Cloudflare Pages</span><span class="where">Drop a Bop: hosts the front end</span></div>
+      <div class="used-row"><span class="name">Vercel</span><span class="where">Loom: hosting and PDF export</span></div>
       <div class="used-row"><span class="name">Docker</span><span class="where">Portfolio Peak: frontend, backend and price bot containers</span></div>
       <div class="used-row"><span class="name">Podman</span><span class="where">L3Harris: deploying our microservices together</span></div>
       <div class="used-row"><span class="name">Kubernetes</span><span class="where">L3Harris: a software set that deploys several different analyst tools together</span></div>
@@ -560,6 +567,8 @@ footer.site-footer .prompt2 { color: var(--add); }
       <div class="used-row"><span class="name">NATS / protobuf</span><span class="where">L3Harris: moved 15 message types onto NATS with protobuf</span></div>
       <div class="used-row"><span class="name">FlatBuffers</span><span class="where">L3Harris: a standardized message that anyone with the message definition can read, without the networking our protobuf messages rely on</span></div>
       <div class="used-row"><span class="name">pytest-bdd</span><span class="where">L3Harris: 50+ test scenarios</span></div>
+      <div class="used-row"><span class="name">Vitest</span><span class="where">Loom: unit tests</span></div>
+      <div class="used-row"><span class="name">Playwright</span><span class="where">Loom: end-to-end tests and PDF export</span></div>
       <div class="used-row"><span class="name">Git / GitHub</span><span class="where">Every project, including GitHub Actions deployments and GitHub Pages hosting for this site</span></div>
     </div>
   </section>
