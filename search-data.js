@@ -26,11 +26,11 @@ window.SEARCH_INDEX = [
   },
   {
     page: 'index.html', anchor: 'about', heading: 'About Ethan Larkin',
-    text: 'Associate Software Engineer at L3Harris on the Fusion ELINT team who builds with AI (Codex at work, Claude Code at home), and UT Dallas computer science graduate (2025), based in Farmersville, Texas. Earned an associate\'s degree at Collin County Community College in 2023. Has worked at Whataburger, QuikTrip and Emerald Cottages while in school. Built Portfolio Peak and a banking app as team class projects, and Drop a Bop with the help of AI.'
+    text: 'Associate Software Engineer at L3Harris on the Fusion ELINT team who builds with AI (Codex at work, Claude Code at home), and UT Dallas computer science graduate (2024), based in Farmersville, Texas. Earned an associate\'s degree at Collin County Community College in 2023. Has worked at Whataburger, QuikTrip and Emerald Cottages while in school. Built Portfolio Peak and a banking app as team class projects, and Drop a Bop with the help of AI.'
   },
   {
     page: 'index.html', anchor: 'quick-facts', heading: 'Quick facts',
-    text: 'Location: Farmersville, TX. Role: Associate Software Engineer, L3Harris. Degree: B.S. Computer Science, UT Dallas (2025). Languages: Python, C++, JavaScript, Java, C. Certification: CompTIA Security+ (2025). AI tools: Codex at work, Claude Code at home.'
+    text: 'Location: Farmersville, TX. Role: Associate Software Engineer, L3Harris. Degree: B.S. Computer Science, UT Dallas (2024). Languages: Python, C++, JavaScript, Java, C. Certification: CompTIA Security+ (2025). AI tools: Codex at work, Claude Code at home.'
   },
   {
     page: 'experience.html', anchor: 'l3harris', heading: 'Associate Software Engineer — L3Harris, Greenville, TX (2025–Present)',
@@ -49,7 +49,7 @@ window.SEARCH_INDEX = [
     text: 'Drive-thru window, fryer, and cleaning the floors, tables and bathrooms.'
   },
   {
-    page: 'experience.html', anchor: 'utd', heading: 'B.S. Computer Science — University of Texas at Dallas (2023–2025)',
+    page: 'experience.html', anchor: 'utd', heading: 'B.S. Computer Science — University of Texas at Dallas (2023–2024)',
     text: 'Bachelor of Computer Science in Richardson, TX. Software Engineering, Database Systems, Data and Applications Security.'
   },
   {
