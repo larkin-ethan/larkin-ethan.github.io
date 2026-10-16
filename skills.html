@@ -205,6 +205,11 @@ nav.tabs a.active::after {
 .search-result .sr-page { color: var(--amber-dim); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.05em; margin: 2px 0 4px; }
 .search-result .sr-snippet { color: var(--cream-dim); font-size: 12.5px; line-height: 1.5; }
 .search-empty { color: var(--cream-dim); font-size: 12.5px; padding: 4px 2px; }
+@media (max-width: 640px) {
+  nav.tabs { flex-wrap: wrap; gap: 1px; background: var(--border); overflow-x: visible; }
+  nav.tabs a { flex: 1 1 30%; border-right: none; background: var(--panel); }
+  nav.tabs a.active { background: var(--bg); }
+}
 @media (max-width: 480px) {
   .term-bar { flex-wrap: nowrap; }
   .term-title {
@@ -219,9 +224,7 @@ nav.tabs a.active::after {
   .mode-btn { font-size: 10.5px; padding: 4px 7px; }
   .mode-btn .mode-label { display: none; }
   .mode-btn.active .mode-label { display: inline; margin-left: 3px; }
-  nav.tabs { flex-wrap: wrap; gap: 1px; background: var(--border); overflow-x: visible; }
-  nav.tabs a { flex: 1 1 30%; padding: 10px 8px; font-size: 11.5px; border-right: none; background: var(--panel); }
-  nav.tabs a.active { background: var(--bg); }
+  nav.tabs a { padding: 10px 8px; font-size: 11.5px; }
   .search-row { padding: 8px 10px; }
   .search-input { font-size: 12.5px; }
   .search-results { left: 12px; right: 12px; }
@@ -513,12 +516,13 @@ footer.site-footer .prompt2 { color: var(--add); }
     <h2 class="gr">dependencies</h2>
     <div class="pkg" id="depsJson">
       <div class="ln">{</div>
+      <div class="ln">  <span class="key">"ai"</span><span class="punc">:</span> [<span class="str">"codex"</span>, <span class="str">"claude-code"</span>, <span class="str">"gemini"</span>, <span class="str">"prompt-design"</span>, <span class="str">"llm-output-validation"</span>],</div>
       <div class="ln">  <span class="key">"languages"</span><span class="punc">:</span> [<span class="str">"python"</span>, <span class="str">"java"</span>, <span class="str">"c"</span>, <span class="str">"c++"</span>, <span class="str">"cuda"</span>, <span class="str">"matlab"</span>, <span class="str">"javascript"</span>, <span class="str">"typescript"</span>, <span class="str">"sql"</span>, <span class="str">"bash"</span>],</div>
       <div class="ln">  <span class="key">"web"</span><span class="punc">:</span> [<span class="str">"html"</span>, <span class="str">"css"</span>, <span class="str">"react"</span>, <span class="str">"next.js"</span>, <span class="str">"django"</span>],</div>
       <div class="ln">  <span class="key">"databases"</span><span class="punc">:</span> [<span class="str">"postgresql"</span>, <span class="str">"sqlite"</span>, <span class="str">"supabase"</span>, <span class="str">"redis"</span>],</div>
       <div class="ln">  <span class="key">"cloud"</span><span class="punc">:</span> [<span class="str">"azure"</span>, <span class="str">"aws"</span>, <span class="str">"cloudflare"</span>, <span class="str">"vercel"</span>],</div>
       <div class="ln">  <span class="key">"messaging"</span><span class="punc">:</span> [<span class="str">"nats"</span>, <span class="str">"protobuf"</span>, <span class="str">"flatbuffers"</span>],</div>
-      <div class="ln">  <span class="key">"apis"</span><span class="punc">:</span> [<span class="str">"gemini"</span>, <span class="str">"stripe"</span>],</div>
+      <div class="ln">  <span class="key">"apis"</span><span class="punc">:</span> [<span class="str">"stripe"</span>],</div>
       <div class="ln">  <span class="key">"tools"</span><span class="punc">:</span> [<span class="str">"git"</span>, <span class="str">"gitlab-ci"</span>, <span class="str">"github"</span>, <span class="str">"docker"</span>, <span class="str">"podman"</span>, <span class="str">"kubernetes"</span>, <span class="str">"pytest-bdd"</span>, <span class="str">"vitest"</span>, <span class="str">"playwright"</span>, <span class="str">"rpm"</span>, <span class="str">"unix"</span>]</div>
       <div class="ln">}</div>
     </div>
@@ -526,6 +530,15 @@ footer.site-footer .prompt2 { color: var(--add); }
 
   <section>
     <h2 class="gr">grep -r --include=* "used in"<span class="tag">by category</span></h2>
+
+    <div class="coverage-group" id="ai">
+      <div class="group-label">AI</div>
+      <div class="used-row"><span class="name">Codex</span><span class="where">L3Harris: bug fixes, writing tests, building new tools, and code and documentation review; teach teammates to use it</span></div>
+      <div class="used-row"><span class="name">Claude Code</span><span class="where">Drop a Bop, Loom, Filings IQ and this site: I write the specs and guardrails, run several agents in parallel, and require tests and CI on every change</span></div>
+      <div class="used-row"><span class="name">Prompt design</span><span class="where">Loom: a separate system prompt and structured JSON output for each AI call</span></div>
+      <div class="used-row"><span class="name">LLM output validation</span><span class="where">Loom: every AI-written resume line must reference a real vault entry, checked on the server; names and contact details stripped in code before the AI review</span></div>
+      <div class="used-row"><span class="name">Gemini API</span><span class="where">Loom: resume tailoring, import parsing and the anonymized second opinion</span></div>
+    </div>
 
     <div class="coverage-group" id="languages">
       <div class="group-label">Languages</div>
@@ -544,7 +557,6 @@ footer.site-footer .prompt2 { color: var(--add); }
       <div class="used-row"><span class="name">React</span><span class="where">Loom, Drop a Bop, Portfolio Peak dashboard, banking app</span></div>
       <div class="used-row"><span class="name">Next.js</span><span class="where">Loom (App Router, server-side plan checks), banking app frontend</span></div>
       <div class="used-row"><span class="name">Django</span><span class="where">Portfolio Peak REST API, banking app backend</span></div>
-      <div class="used-row"><span class="name">Gemini API</span><span class="where">Loom: resume tailoring, import parsing and the anonymized second opinion</span></div>
       <div class="used-row"><span class="name">Stripe</span><span class="where">Loom: plan tiers and billing</span></div>
     </div>
 
@@ -570,6 +582,20 @@ footer.site-footer .prompt2 { color: var(--add); }
       <div class="used-row"><span class="name">Vitest</span><span class="where">Loom: unit tests</span></div>
       <div class="used-row"><span class="name">Playwright</span><span class="where">Loom: end-to-end tests and PDF export</span></div>
       <div class="used-row"><span class="name">Git / GitHub</span><span class="where">Every project, including GitHub Actions deployments and GitHub Pages hosting for this site</span></div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <h2 class="gr">cat ~/resume/certifications.json</h2>
+    <div class="pkg">
+      <div class="ln">[</div>
+      <div class="ln">  {</div>
+      <div class="ln">    <span class="key">"name"</span><span class="punc">:</span> <span class="str">"CompTIA Security+"</span><span class="punc">,</span></div>
+      <div class="ln">    <span class="key">"issuer"</span><span class="punc">:</span> <span class="str">"CompTIA"</span><span class="punc">,</span></div>
+      <div class="ln">    <span class="key">"earned"</span><span class="punc">:</span> <span class="str">"2025"</span><span class="punc">,</span></div>
+      <div class="ln">    <span class="key">"verify"</span><span class="punc">:</span> <span class="str">"<a class="pkg-link" href="https://www.credly.com/badges/bf95a51a-043e-4875-a6a1-6c499be69e52" target="_blank" rel="noopener noreferrer">credly.com/badges/bf95a51a…</a>"</span></div>
+      <div class="ln">  }</div>
+      <div class="ln">]</div>
     </div>
   </section>
 

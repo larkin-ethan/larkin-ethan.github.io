@@ -26,15 +26,15 @@ window.SEARCH_INDEX = [
   },
   {
     page: 'index.html', anchor: 'about', heading: 'About Ethan Larkin',
-    text: 'Associate Software Engineer at L3Harris on the Fusion ELINT team, and UT Dallas computer science graduate (2025), based in Farmersville, Texas. Earned an associate\'s degree at Collin County Community College in 2023. Has worked at Whataburger, QuikTrip and Emerald Cottages while in school. Built Portfolio Peak and a banking app as team class projects, and Drop a Bop with the help of AI.'
+    text: 'Associate Software Engineer at L3Harris on the Fusion ELINT team who builds with AI (Codex at work, Claude Code at home), and UT Dallas computer science graduate (2025), based in Farmersville, Texas. Earned an associate\'s degree at Collin County Community College in 2023. Has worked at Whataburger, QuikTrip and Emerald Cottages while in school. Built Portfolio Peak and a banking app as team class projects, and Drop a Bop with the help of AI.'
   },
   {
     page: 'index.html', anchor: 'quick-facts', heading: 'Quick facts',
-    text: 'Location: Farmersville, TX. Role: Associate Software Engineer, L3Harris. Degree: B.S. Computer Science, UT Dallas (2025). Languages: Python, C++, JavaScript, Java, C. Latest project: Drop a Bop. Work history: L3Harris, QuikTrip, Emerald Cottages, Whataburger.'
+    text: 'Location: Farmersville, TX. Role: Associate Software Engineer, L3Harris. Degree: B.S. Computer Science, UT Dallas (2025). Languages: Python, C++, JavaScript, Java, C. Certification: CompTIA Security+ (2025). AI tools: Codex at work, Claude Code at home.'
   },
   {
     page: 'experience.html', anchor: 'l3harris', heading: 'Associate Software Engineer — L3Harris, Greenville, TX (2025–Present)',
-    text: 'Fusion ELINT team. C++ daemon moving 15 message types to NATS and protobuf, GitLab CI/CD pipelines packaging the ICD as RPMs, 50+ pytest-bdd scenarios, 3 web GUIs over command-line scripts, AI-assisted workflow.'
+    text: 'Fusion ELINT team. C++ daemon moving 15 message types to NATS and protobuf, GitLab CI/CD pipelines packaging the ICD as RPMs, 50+ pytest-bdd scenarios, 3 web GUIs over command-line scripts, AI coding agents (Codex) for bug fixes, tests, new tools and code review, early adopter who teaches teammates.'
   },
   {
     page: 'experience.html', anchor: 'quiktrip', heading: 'Clerk — QuikTrip, Anna, TX (2019–2025)',
@@ -85,12 +85,20 @@ window.SEARCH_INDEX = [
     text: 'A stock portfolio diversification site built with a team of five: a PostgreSQL database and a price bot that updates stock prices every minute. React, JavaScript, Python, Django, PostgreSQL, Docker.'
   },
   {
+    page: 'skills.html', anchor: 'ai', heading: 'AI',
+    text: 'Codex at work (bug fixes, tests, new tools, code review, teaching teammates), Claude Code at home (spec-driven, several agents in parallel, mandatory tests and CI), prompt design, LLM output validation, Gemini API.'
+  },
+  {
+    page: 'skills.html', anchor: 'certifications', heading: 'Certifications',
+    text: 'CompTIA Security+ (2025), verified on Credly.'
+  },
+  {
     page: 'skills.html', anchor: 'languages', heading: 'Languages',
     text: 'Python, Java, C, C++, CUDA, MATLAB, JavaScript, TypeScript, SQL, Bash.'
   },
   {
     page: 'skills.html', anchor: 'web', heading: 'Web, frameworks & APIs',
-    text: 'HTML, CSS, React, Next.js, Django, Gemini API, Stripe.'
+    text: 'HTML, CSS, React, Next.js, Django, Stripe.'
   },
   {
     page: 'skills.html', anchor: 'data-cloud', heading: 'Databases & cloud',
